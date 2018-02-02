@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-02T09:42:32.703Z</updated>
+  <updated>2018-02-02T10:04:11.844Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2018/02/02/hexo-next-%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E6%90%AD%E5%BB%BA/"/>
     <id>http://yoursite.com/2018/02/02/hexo-next-博客系统搭建/</id>
     <published>2018-02-02T08:36:35.000Z</published>
-    <updated>2018-02-02T09:42:32.703Z</updated>
+    <updated>2018-02-02T10:04:11.844Z</updated>
     
-    <content type="html"><![CDATA[<p>自己搭建博客的一些参考资料，记录防止以后用到。并非教程。<br><a id="more"></a></p><ol><li>hexo的next主题个性化教程：打造炫酷网站 <a href="http://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" rel="noopener">http://blog.csdn.net/qq_33699981/article/details/72716951</a></li><li>一个好的布局：<a href="http://jmyblog.top/" target="_blank" rel="noopener">http://jmyblog.top/</a></li></ol>]]></content>
+    <content type="html"><![CDATA[<p>自己搭建博客的一些参考资料，记录防止以后用到。并非教程。<br><a id="more"></a></p><ol><li>hexo的next主题个性化教程：打造炫酷网站 <a href="http://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" rel="noopener">http://blog.csdn.net/qq_33699981/article/details/72716951</a></li><li>一个好的布局：<a href="http://jmyblog.top/" target="_blank" rel="noopener">http://jmyblog.top/</a></li><li>布局优化：<a href="http://blog.csdn.net/heqiangflytosky/article/details/54863185" target="_blank" rel="noopener">http://blog.csdn.net/heqiangflytosky/article/details/54863185</a></li></ol>]]></content>
     
     <summary type="html">
     
