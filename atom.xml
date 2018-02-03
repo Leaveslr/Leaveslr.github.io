@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>��Ҷ</title>
+  <title>菜叶</title>
   
-  <subtitle>���֡��ܶ�������</subtitle>
+  <subtitle>快乐、奋斗、加油</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
@@ -10,7 +10,7 @@
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>����</name>
+    <name>刘荣</name>
     
   </author>
   
