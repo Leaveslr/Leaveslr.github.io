@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="菜叶" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="caiye" type="application/atom+xml" />
 
 
 
@@ -86,7 +86,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="hello word">
 <meta property="og:url" content="http://yoursite.com/2018/02/02/hello-word/index.html">
-<meta property="og:site_name" content="菜叶">
+<meta property="og:site_name" content="caiye">
 <meta property="og:description" content="This is a summary of the post.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-02-02T08:04:40.168Z">
@@ -128,7 +128,7 @@
 
 
 
-  <title>hello word | 菜叶</title>
+  <title>hello word | caiye</title>
   
 
 
@@ -159,12 +159,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">菜叶</span>
+        <span class="site-title">caiye</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">快乐、奋斗、加油</p>
+        <p class="site-subtitle">come on ��</p>
       
   </div>
 
@@ -275,7 +275,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="菜叶">
+      <meta itemprop="name" content="caiye">
     </span>
 
     
@@ -349,8 +349,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2018/02/02/hello-word/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/02/02/hello-word/" itemprop="commentCount"></span>
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/02/02/hello-word/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -457,7 +456,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/个人/" rel="tag"># 个人</a>
+            <a href="/tags/个人/" rel="tag"><i class="fa fa-tag"></i> 个人</a>
           
         </div>
       
@@ -473,6 +472,13 @@
 
         
 
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
         
         </div>
       
@@ -509,32 +515,6 @@
 
     <div class="post-spread">
       
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<span class="jiathis_txt">分享到：</span>
-<a class="jiathis_button_fav">收藏夹</a>
-<a class="jiathis_button_copy">复制网址</a>
-<a class="jiathis_button_email">邮件</a>
-<a class="jiathis_button_weixin">微信</a>
-<a class="jiathis_button_qzone">QQ空间</a>
-<a class="jiathis_button_tqq">腾讯微博</a>
-<a class="jiathis_button_douban">豆瓣</a>
-<a class="jiathis_button_share">一键分享</a>
-
-<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
-<a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-  data_track_clickback:true,
-  summary:"",
-  shortUrl:false,
-  hideMore:false
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-      
     </div>
   </div>
 
@@ -547,12 +527,7 @@ var jiathis_config={
 
   
     <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
+      <div id="uyan_frame"></div>
     </div>
 
   
@@ -714,13 +689,15 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">135</span>
+    <span title="Site words total count">1.2k</span>
   
 </div>
-<div class="powered-by">
-<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
-  本站访客数:<span id="busuanzi_value_site_uv"></span>
-  </span>
+
+ <div class="powered-by">
+	<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+	  访客:<span id="busuanzi_value_site_uv"></span>
+	  浏览:<span id="busuanzi_value_site_pv"></span>
+	  </span>
 </div>
 
 
@@ -733,7 +710,6 @@ var jiathis_config={
 
 
   <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
-
 
 
 
@@ -877,26 +853,6 @@ var jiathis_config={
 
   
 
-
-  
-
-    
-      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/02/02/hello-word/';
-          this.page.identifier = '2018/02/02/hello-word/';
-          this.page.title = 'hello word';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
 
   
 
@@ -1078,6 +1034,31 @@ var jiathis_config={
   
 
   
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
   
   <script type="text/javascript">
   wpac_init = window.wpac_init || [];

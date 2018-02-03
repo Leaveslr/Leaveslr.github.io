@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="菜叶" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="caiye" type="application/atom+xml" />
 
 
 
@@ -86,13 +86,16 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo+next 博客系统搭建">
 <meta property="og:url" content="http://yoursite.com/2018/02/02/hexo-next-博客系统搭建/index.html">
-<meta property="og:site_name" content="菜叶">
+<meta property="og:site_name" content="caiye">
 <meta property="og:description" content="自己搭建博客的一些参考资料，记录防止以后用到。并非教程。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-02T10:04:11.844Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/291600-a114303ec633d628.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/291600-47b6f370eeb9384f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta property="og:updated_time" content="2018-02-03T04:29:35.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+next 博客系统搭建">
 <meta name="twitter:description" content="自己搭建博客的一些参考资料，记录防止以后用到。并非教程。">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/291600-a114303ec633d628.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
 
 
 
@@ -128,7 +131,7 @@
 
 
 
-  <title>hexo+next 博客系统搭建 | 菜叶</title>
+  <title>hexo+next 博客系统搭建 | caiye</title>
   
 
 
@@ -159,12 +162,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">菜叶</span>
+        <span class="site-title">caiye</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">快乐、奋斗、加油</p>
+        <p class="site-subtitle">come on ��</p>
       
   </div>
 
@@ -275,7 +278,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="菜叶">
+      <meta itemprop="name" content="caiye">
     </span>
 
     
@@ -311,8 +314,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-02T18:04:11+08:00">
-                2018-02-02
+              <time title="更新于" itemprop="dateModified" datetime="2018-02-03T12:29:35+08:00">
+                2018-02-03
               </time>
             
           </span>
@@ -327,8 +330,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2018/02/02/hexo-next-博客系统搭建/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/02/02/hexo-next-博客系统搭建/" itemprop="commentCount"></span>
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/02/02/hexo-next-博客系统搭建/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -361,7 +363,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  72
+                  1,144
                 </span>
               
 
@@ -377,7 +379,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  5
                 </span>
               
             </div>
@@ -399,7 +401,91 @@
 
       
         <p>自己搭建博客的一些参考资料，记录防止以后用到。并非教程。<br><a id="more"></a></p>
+<h2 id="博客的搭建"><a href="#博客的搭建" class="headerlink" title="博客的搭建"></a>博客的搭建</h2><h2 id="博客的个性化设置"><a href="#博客的个性化设置" class="headerlink" title="博客的个性化设置"></a>博客的个性化设置</h2><h3 id="文章阅读次数"><a href="#文章阅读次数" class="headerlink" title="文章阅读次数"></a>文章阅读次数</h3><p>本博客的阅读次数统计使用的是leanCloud账号，注册相对简单，具体步骤：</p>
 <ol>
+<li>创建LeanCloud账号<a href="https://leancloud.cn/" target="_blank" rel="noopener">LeanCloud</a></li>
+<li>创建应用：注册并登录LeanCloud后，进入控制台，单击“创建应用”按钮进行应用的创建，输入新应用名称，选择开发版，单击“创建”按钮完成创建。  <img src="https://upload-images.jianshu.io/upload_images/291600-a114303ec633d628.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></li>
+<li><p>创建Class:进入到刚刚创建的应用中，选择左侧导航栏的“存储”，然后点击“创建Class”，为了与NexT形成配置关系，将Class名称填为Counter，并选择无限制选项，然后单击“创建Class”按钮完成Class的创建，如下图所示：<img src="https://upload-images.jianshu.io/upload_images/291600-47b6f370eeb9384f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></p>
+<p> 点击刚刚创建的Counter，其实质是一张结构表，用来记录文章的浏览量，如下图所示，这里的表可以直接对文章阅读次数进行修改，所以如果想要追求阅读次数的读者可以在表上直接进行修改。</p>
+</li>
+<li><p>配置key:在左侧导航栏的设置界面，单击“应用Key”可以看到应用的App ID和App Key。复制ID和Key，然后将其配置到主题配置文件中，在文件中找到leancloud_visitors属性，将enable设置为true，然后将之前复制的ID和Key粘贴到相应的属性中。</p>
+</li>
+</ol>
+<h3 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h3><p>一开始用的 JiaThis, 后发现发不上去就不显示。后使用的needmoreshare2。</p>
+<pre><code># NeedMoreShare2
+# This plugin is a pure javascript sharing lib which is useful in China.
+# See: https://github.com/revir/need-more-share2
+# Also see: https://github.com/DzmVasileusky/needShareButton
+# iconStyle: default | box
+# boxForm: horizontal | vertical
+# position: top / middle / bottom + Left / Center / Right
+# networks: Weibo,Wechat,Douban,QQZone,Twitter,Linkedin,Mailto,Reddit,
+#           Delicious,StumbleUpon,Pinterest,Facebook,GooglePlus,Slashdot,
+#           Technorati,Posterous,Tumblr,GoogleBookmarks,Newsvine,
+#           Evernote,Friendfeed,Vkontakte,Odnoklassniki,Mailru
+needmoreshare2:
+  enable: true
+  postbottom:
+    enable: true
+    options:
+      iconStyle: default
+      boxForm: horizontal
+      position: bottomCenter
+      networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
+ float:
+    enable: false
+    options:
+      iconStyle: box
+      boxForm: horizontal
+</code></pre><h3 id="评论系统"><a href="#评论系统" class="headerlink" title="评论系统"></a>评论系统</h3><p>一开始折腾了使用 <a href="http://www.uyan.cc/" target="_blank" rel="noopener">友言</a>,发现一直出不来效果，就果断放弃了（后期看看加入好的评论系统）。然后转向了简单的<a href="https://valine.js.org/" target="_blank" rel="noopener">Valine</a>.</p>
+<p>Valine一款快速、简洁且高效的无后端评论系统,基于Leancloud开发。具体流程：</p>
+<ol>
+<li>创建LeanCloud账号<a href="https://leancloud.cn/" target="_blank" rel="noopener">LeanCloud</a> 并获取 App ID和App Key。</li>
+<li><p>配置：</p>
+<h1 id="Valine"><a href="#Valine" class="headerlink" title="Valine."></a>Valine.</h1><h1 id="You-can-get-your-appid-and-appkey-from-https-leancloud-cn"><a href="#You-can-get-your-appid-and-appkey-from-https-leancloud-cn" class="headerlink" title="You can get your appid and appkey from https://leancloud.cn"></a>You can get your appid and appkey from <a href="https://leancloud.cn" target="_blank" rel="noopener">https://leancloud.cn</a></h1><h1 id="more-info-please-open-https-valine-js-org"><a href="#more-info-please-open-https-valine-js-org" class="headerlink" title="more info please open https://valine.js.org"></a>more info please open <a href="https://valine.js.org" target="_blank" rel="noopener">https://valine.js.org</a></h1><p>  valine:</p>
+<pre><code>enable: true
+appid: *****
+appkey: ****
+notify: false # mail notifier , https://github.com/xCss/Valine/wiki
+verify: false # Verification code
+placeholder: Just go go # comment box placeholder
+avatar: mm # gravatar style
+guest_info: nick,mail,link # custom comment header
+pageSize: 10 # pagination size 
+</code></pre></li>
+</ol>
+<h3 id="布局大小调整"><a href="#布局大小调整" class="headerlink" title="布局大小调整"></a>布局大小调整</h3><p>一开始用的next默认的布局，但是看到<a href="http://jmyblog.top" target="_blank" rel="noopener">jmyblog</a>后，发现自己的布局可以调整，就尝试调整了一下，在官方文章中设置内容区域布局：NexT 对于内容的宽度的设定如下：700px，当屏幕宽度 &lt; 1600px；900px，当屏幕宽度 &gt;= 1600px；移动设备下，宽度自适应。</p>
+<p>如果你需要修改内容的宽度，同样需要编辑样式文件。 编辑主题的 source/css/_variables/custom.styl 文件，新增变量：<br>    // 修改成你期望的宽度<br>    $content-desktop = 700px</p>
+<pre><code>// 当视窗超过 1600px 后的宽度
+$content-desktop-large = 900px
+</code></pre><p>但是对于Pisces Scheme，需要单独配置source/css/_variables/custom.styl：</p>
+<pre><code>.header{ width: 90%; }
+.container .main-inner { width: 90%; }
+.content-wrap { width: calc(100% - 260px); }
+</code></pre><h3 id="侧边栏调整"><a href="#侧边栏调整" class="headerlink" title="侧边栏调整"></a>侧边栏调整</h3><h3 id="文末版权信息"><a href="#文末版权信息" class="headerlink" title="文末版权信息"></a>文末版权信息</h3><h3 id="站点访问人数"><a href="#站点访问人数" class="headerlink" title="站点访问人数"></a>站点访问人数</h3><p>具体实现方法，在\themes\next\layout_partials\footer.swig文件中，在copyright前加以下代码：</p>
+<pre><code>&lt;script async src=&quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>在再合适的位置添加显示统计的代码：</p>
+<pre><code>&lt;div class=&quot;powered-by&quot;&gt;
+&lt;i class=&quot;fa fa-user-md&quot;&gt;&lt;/i&gt;&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;
+  访客:&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;
+  浏览:&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/div&gt;
+</code></pre><h3 id="文章字数统计"><a href="#文章字数统计" class="headerlink" title="文章字数统计"></a>文章字数统计</h3><ol>
+<li>切换到根目录下，然后运行如下代码 <code>$ npm install hexo-wordcount --save</code></li>
+<li><p>然后在主题的配置文件中，配置如下：</p>
+<p> `# Post wordcount display settings</p>
+<h1 id="Dependencies-https-github-com-willin-hexo-wordcount"><a href="#Dependencies-https-github-com-willin-hexo-wordcount" class="headerlink" title="Dependencies: https://github.com/willin/hexo-wordcount"></a>Dependencies: <a href="https://github.com/willin/hexo-wordcount" target="_blank" rel="noopener">https://github.com/willin/hexo-wordcount</a></h1><p>  post_wordcount:<br>  item_text: true<br>  wordcount: true<br>  min2read: true`</p>
+</li>
+</ol>
+<h3 id="修改文章底部的那个带-号的标签"><a href="#修改文章底部的那个带-号的标签" class="headerlink" title="修改文章底部的那个带#号的标签"></a>修改文章底部的那个带#号的标签</h3><p>修改模板/themes/next/layout/_macro/post.swig，搜索<br> <code>rel=&quot;tag&quot;&gt;#，将 # 换成&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code></p>
+<h3 id="网站底部次数统计"><a href="#网站底部次数统计" class="headerlink" title="网站底部次数统计"></a>网站底部次数统计</h3><p>需要使用hexo-wordcount 具体步骤：</p>
+<ol>
+<li>切换到根目录下，然后运行如下代码 <code>$ npm install hexo-wordcount --save</code></li>
+<li>然后在/themes/next/layout/_partials/footer.swig文件尾部加上：</li>
+</ol>
+<h3 id="加入百度"><a href="#加入百度" class="headerlink" title="加入百度"></a>加入百度</h3><h2 id="hexo-next-资料"><a href="#hexo-next-资料" class="headerlink" title="hexo+next 资料"></a>hexo+next 资料</h2><ol>
+<li>next官方： <a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">http://theme-next.iissnan.com/</a></li>
 <li>hexo的next主题个性化教程：打造炫酷网站 <a href="http://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" rel="noopener">http://blog.csdn.net/qq_33699981/article/details/72716951</a></li>
 <li>一个好的布局：<a href="http://jmyblog.top/" target="_blank" rel="noopener">http://jmyblog.top/</a></li>
 <li>布局优化：<a href="http://blog.csdn.net/heqiangflytosky/article/details/54863185" target="_blank" rel="noopener">http://blog.csdn.net/heqiangflytosky/article/details/54863185</a></li>
@@ -439,7 +525,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/个人/" rel="tag"># 个人</a>
+            <a href="/tags/个人/" rel="tag"><i class="fa fa-tag"></i> 个人</a>
           
         </div>
       
@@ -455,6 +541,13 @@
 
         
 
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
         
         </div>
       
@@ -491,32 +584,6 @@
 
     <div class="post-spread">
       
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<span class="jiathis_txt">分享到：</span>
-<a class="jiathis_button_fav">收藏夹</a>
-<a class="jiathis_button_copy">复制网址</a>
-<a class="jiathis_button_email">邮件</a>
-<a class="jiathis_button_weixin">微信</a>
-<a class="jiathis_button_qzone">QQ空间</a>
-<a class="jiathis_button_tqq">腾讯微博</a>
-<a class="jiathis_button_douban">豆瓣</a>
-<a class="jiathis_button_share">一键分享</a>
-
-<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
-<a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-  data_track_clickback:true,
-  summary:"",
-  shortUrl:false,
-  hideMore:false
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-      
     </div>
   </div>
 
@@ -529,12 +596,7 @@ var jiathis_config={
 
   
     <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
+      <div id="uyan_frame"></div>
     </div>
 
   
@@ -560,8 +622,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -661,6 +732,22 @@ var jiathis_config={
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#博客的搭建"><span class="nav-number">1.</span> <span class="nav-text">博客的搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客的个性化设置"><span class="nav-number">2.</span> <span class="nav-text">博客的个性化设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章阅读次数"><span class="nav-number">2.1.</span> <span class="nav-text">文章阅读次数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分享"><span class="nav-number">2.2.</span> <span class="nav-text">分享</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评论系统"><span class="nav-number">2.3.</span> <span class="nav-text">评论系统</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Valine"><span class="nav-number"></span> <span class="nav-text">Valine.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#You-can-get-your-appid-and-appkey-from-https-leancloud-cn"><span class="nav-number"></span> <span class="nav-text">You can get your appid and appkey from https://leancloud.cn</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#more-info-please-open-https-valine-js-org"><span class="nav-number"></span> <span class="nav-text">more info please open https://valine.js.org</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#布局大小调整"><span class="nav-number">0.1.</span> <span class="nav-text">布局大小调整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#侧边栏调整"><span class="nav-number">0.2.</span> <span class="nav-text">侧边栏调整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文末版权信息"><span class="nav-number">0.3.</span> <span class="nav-text">文末版权信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#站点访问人数"><span class="nav-number">0.4.</span> <span class="nav-text">站点访问人数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章字数统计"><span class="nav-number">0.5.</span> <span class="nav-text">文章字数统计</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dependencies-https-github-com-willin-hexo-wordcount"><span class="nav-number"></span> <span class="nav-text">Dependencies: https://github.com/willin/hexo-wordcount</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章底部的那个带-号的标签"><span class="nav-number">0.1.</span> <span class="nav-text">修改文章底部的那个带#号的标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网站底部次数统计"><span class="nav-number">0.2.</span> <span class="nav-text">网站底部次数统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加入百度"><span class="nav-number">0.3.</span> <span class="nav-text">加入百度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-next-资料"><span class="nav-number">1.</span> <span class="nav-text">hexo+next 资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -696,13 +783,15 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">135</span>
+    <span title="Site words total count">1.2k</span>
   
 </div>
-<div class="powered-by">
-<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
-  本站访客数:<span id="busuanzi_value_site_uv"></span>
-  </span>
+
+ <div class="powered-by">
+	<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+	  访客:<span id="busuanzi_value_site_uv"></span>
+	  浏览:<span id="busuanzi_value_site_pv"></span>
+	  </span>
 </div>
 
 
@@ -715,7 +804,6 @@ var jiathis_config={
 
 
   <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
-
 
 
 
@@ -859,26 +947,6 @@ var jiathis_config={
 
   
 
-
-  
-
-    
-      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/02/02/hexo-next-博客系统搭建/';
-          this.page.identifier = '2018/02/02/hexo-next-博客系统搭建/';
-          this.page.title = 'hexo+next 博客系统搭建';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
 
   
 
@@ -1060,6 +1128,31 @@ var jiathis_config={
   
 
   
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
   
   <script type="text/javascript">
   wpac_init = window.wpac_init || [];
