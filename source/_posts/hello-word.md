@@ -9,5 +9,7 @@ categories:
 This is a summary of the post.
 <!-- more -->
 
+    $$\frac{7x+5}{1+y^2}$$
+
 ##Say you have a lenghty post and don't like the fact that the entire article is displayed in the listing pages...
 You can mark a spot in your markdown with <!-- more --> to hide it from the listing pages. It will be replaced with a "Read more" link that will open the rest of the article content.
