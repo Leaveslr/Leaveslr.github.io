@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://leaveslr.github.io/"/>
-  <updated>2018-02-03T14:31:00.044Z</updated>
+  <updated>2018-02-03T15:12:05.255Z</updated>
   <id>https://leaveslr.github.io/</id>
   
   <author>
@@ -21,22 +21,13 @@
     <link href="https://leaveslr.github.io/2018/02/03/math-formate-in-hexo/"/>
     <id>https://leaveslr.github.io/2018/02/03/math-formate-in-hexo/</id>
     <published>2018-02-03T14:28:15.000Z</published>
-    <updated>2018-02-03T14:31:00.044Z</updated>
+    <updated>2018-02-03T15:12:05.255Z</updated>
     
-    <content type="html"><![CDATA[<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script><script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script><h2 id="简单公式"><a href="#简单公式" class="headerlink" title="简单公式"></a>简单公式</h2><p>$$f’(x_0)=\lim_{\Delta x\to 0} \frac{f(x_0+\Delta x) - f(x_0)}{\Delta x}$$</p>]]></content>
+    <content type="html"><![CDATA[<p>hexo中使用数学公式的一个解决方法和相应的公式符号。<br><a id="more"></a></p><script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script><script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>这几天使用hexo搭建了自己的博客，在设定了一些个性化的配置后，就开始写自己的博客了，是不是很开心？然而我第一篇文章中就遇到问题了，怎么在博文中插入数学公式，并且本地编辑的时候能够可视化查看。基于这个问题，在网上查了半天终于搞定了。首先定义一下我们要解决的问题：</p><ol><li>hexo博文中能够加入数学公式并能显示（基于markdown）。</li><li>编辑本地markdown，并能可视化查看。</li></ol><p>在开始讲解解决方案前，先了解这个概念：MathJax、Tex、Markdown</p><h1 id="简单公式"><a href="#简单公式" class="headerlink" title="简单公式"></a>简单公式</h1><h2 id="行中公式"><a href="#行中公式" class="headerlink" title="行中公式"></a>行中公式</h2><p>对于一个线性方程 \( y=a*x+b\)</p><p>$$f’(x_0)=\lim_{\Delta x\to 0} \frac{f(x_0+\Delta x) - f(x_0)}{\Delta x}$$</p><h1 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h1><ol><li><a href="http://daniellaah.github.io/2016/Mathmatical-Formula-within-Markdown.html" target="_blank" rel="noopener">如何在Hexo博客中插入数学公式</a></li></ol>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
-MathJax.Hub.Config({
-tex2jax: {inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]]}
-});
-&lt;/script&gt;
-
-&lt;script type=&quot;te
-      
+      &lt;p&gt;hexo中使用数学公式的一个解决方法和相应的公式符号。&lt;br&gt;
     
     </summary>
     
