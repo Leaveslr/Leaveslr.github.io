@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://leaveslr.github.io/"/>
-  <updated>2018-02-03T10:13:08.838Z</updated>
+  <updated>2018-02-03T14:31:00.044Z</updated>
   <id>https://leaveslr.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>math formate in hexo</title>
+    <link href="https://leaveslr.github.io/2018/02/03/math-formate-in-hexo/"/>
+    <id>https://leaveslr.github.io/2018/02/03/math-formate-in-hexo/</id>
+    <published>2018-02-03T14:28:15.000Z</published>
+    <updated>2018-02-03T14:31:00.044Z</updated>
+    
+    <content type="html"><![CDATA[<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script><script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script><h2 id="简单公式"><a href="#简单公式" class="headerlink" title="简单公式"></a>简单公式</h2><p>$$f’(x_0)=\lim_{\Delta x\to 0} \frac{f(x_0+\Delta x) - f(x_0)}{\Delta x}$$</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
+MathJax.Hub.Config({
+tex2jax: {inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]]}
+});
+&lt;/script&gt;
+
+&lt;script type=&quot;te
+      
+    
+    </summary>
+    
+      <category term="hexo" scheme="https://leaveslr.github.io/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="https://leaveslr.github.io/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>A Neural Autoregressive Approach to Collaborative Filtering</title>
