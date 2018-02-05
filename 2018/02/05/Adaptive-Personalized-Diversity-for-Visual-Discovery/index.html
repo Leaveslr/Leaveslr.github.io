@@ -81,18 +81,20 @@
 
 
 
-<meta name="description" content="这篇文章来自 洪亮勋博客分享,Adaptive, Personalized Diversity for Visual Discovery文章为RecSys 2016的文章。 这篇文章解决的问题： - 基于贝叶斯回归模型的评分模型 - 基于主题的多样性模型子模块 - 基于用户的个性化多样性模型 SCORING ITEM RELEVANCE \[ P(click|item is viewed)">
+<meta name="description" content="本文是一篇论文笔记，Amzon 关于多样性的论文Adaptive, Personalized Diversity for Visual Discovery，分为： 基于贝叶斯回归模型的评分模型 ，基于主题的多样性模型子模块，基于用户的个性化多样性模型. 未完待续">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Adaptive, Personalized Diversity for Visual Discovery">
 <meta property="og:url" content="https://leaveslr.github.io/2018/02/05/Adaptive-Personalized-Diversity-for-Visual-Discovery/index.html">
 <meta property="og:site_name" content="菜叶">
-<meta property="og:description" content="这篇文章来自 洪亮勋博客分享,Adaptive, Personalized Diversity for Visual Discovery文章为RecSys 2016的文章。 这篇文章解决的问题： - 基于贝叶斯回归模型的评分模型 - 基于主题的多样性模型子模块 - 基于用户的个性化多样性模型 SCORING ITEM RELEVANCE \[ P(click|item is viewed)">
+<meta property="og:description" content="本文是一篇论文笔记，Amzon 关于多样性的论文Adaptive, Personalized Diversity for Visual Discovery，分为： 基于贝叶斯回归模型的评分模型 ，基于主题的多样性模型子模块，基于用户的个性化多样性模型. 未完待续">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-05T06:32:19.477Z">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/be5dc787gw1f81r06spqrj20px0lkjvp.jpg">
+<meta property="og:updated_time" content="2018-02-05T06:51:13.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Adaptive, Personalized Diversity for Visual Discovery">
-<meta name="twitter:description" content="这篇文章来自 洪亮勋博客分享,Adaptive, Personalized Diversity for Visual Discovery文章为RecSys 2016的文章。 这篇文章解决的问题： - 基于贝叶斯回归模型的评分模型 - 基于主题的多样性模型子模块 - 基于用户的个性化多样性模型 SCORING ITEM RELEVANCE \[ P(click|item is viewed)">
+<meta name="twitter:description" content="本文是一篇论文笔记，Amzon 关于多样性的论文Adaptive, Personalized Diversity for Visual Discovery，分为： 基于贝叶斯回归模型的评分模型 ，基于主题的多样性模型子模块，基于用户的个性化多样性模型. 未完待续">
+<meta name="twitter:image" content="https://ww1.sinaimg.cn/large/be5dc787gw1f81r06spqrj20px0lkjvp.jpg">
 
 
 
@@ -311,12 +313,34 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-05T14:32:19+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-02-05T14:51:13+08:00">
                 2018-02-05
               </time>
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -360,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  626
+                  748
                 </span>
               
 
@@ -397,12 +421,27 @@
       
 
       
-        <p>这篇文章来自 <a href="http://weibo.com/ttarticle/p/show?id=2309404022330610299674" target="_blank" rel="noopener">洪亮勋博客分享</a>,<a href="http://dl.acm.org/citation.cfm?id=2959171" target="_blank" rel="noopener">Adaptive, Personalized Diversity for Visual Discovery</a>文章为RecSys 2016的文章。</p>
-<p>这篇文章解决的问题： - 基于贝叶斯回归模型的评分模型 - 基于主题的多样性模型子模块 - 基于用户的个性化多样性模型</p>
-<h2 id="scoring-item-relevance">SCORING ITEM RELEVANCE</h2>
-<p><span class="math display">\[
-P(click|item is viewed) = f(\sum_{x_i is active}{x_i})
-\]</span> 本文利用Thompson sampling <a href="http://www.research.rutgers.edu/~lihong/pub/Chapelle12Empirical.pdf" target="_blank" rel="noopener">an empirical evaluation of thompson sampling</a>，摘录了具体的实现 #### Regularized logistic regression with batch updates Require Regualization parameter <code>$\lambda&gt;0$</code></p>
+        本文是一篇论文笔记，Amzon 关于多样性的论文<a href="http://dl.acm.org/citation.cfm?id=2959171" target="_blank" rel="noopener">Adaptive, Personalized Diversity for Visual Discovery</a>，分为： 基于贝叶斯回归模型的评分模型 ，基于主题的多样性模型子模块，基于用户的个性化多样性模型. 未完待续 <a id="more"></a>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<p>这篇文章来自 <a href="http://weibo.com/ttarticle/p/show?id=2309404022330610299674" target="_blank" rel="noopener">洪亮勋博客分享</a>,<a href="http://dl.acm.org/citation.cfm?id=2959171" target="_blank" rel="noopener">Adaptive, Personalized Diversity for Visual Discovery</a>文章为RecSys 2016的文章。主要解决的问题：</p>
+<ul>
+<li>基于贝叶斯回归模型的评分模型</li>
+<li>基于主题的多样性模型子模块</li>
+<li>基于用户的个性化多样性模型</li>
+</ul>
+<p><img src="https://ww1.sinaimg.cn/large/be5dc787gw1f81r06spqrj20px0lkjvp.jpg"></p>
+<h2 id="基于贝叶斯回归模型的评分模型">基于贝叶斯回归模型的评分模型</h2>
+<p>本文使用了Bayesian Linear Probit Regression来做最基础的Click Modeling，具体公式：</p>
+<p><span class="math display">\[ P(click|item is viewed) = f(\sum_{x_i is active }{x_i}) \]</span></p>
+<p>本文利用Thompson sampling <a href="http://www.research.rutgers.edu/~lihong/pub/Chapelle12Empirical.pdf" target="_blank" rel="noopener">an empirical evaluation of thompson sampling</a>，摘录了具体的实现</p>
+<h3 id="regularized-logistic-regression-with-batch-updates">Regularized logistic regression with batch updates</h3>
+<p>Require Regualization parameter <span class="math inline">\(\lambda&gt;0\)</span></p>
 <ul>
 <li><span class="math inline">\(m_i=0,q_i=\lambda\)</span>,{Each wi has an independent prior <span class="math inline">\(N(m_i,q^{-1}_i)\)</span>}</li>
 <li>for t = 1,…T do
@@ -415,7 +454,7 @@ P(click|item is viewed) = f(\sum_{x_i is active}{x_i})
 <li>end for</li>
 <li></li>
 </ul>
-<h2 id="submodular-diversification">submodular diversification</h2>
+<h2 id="基于主题的多样性模型子模块">基于主题的多样性模型子模块</h2>
 <p>submodelar 资料<a href="http://theory.stanford.edu/~jvondrak/data/submod-tutorial-1.pdf" target="_blank" rel="noopener">satnford cs</a>,详细的sumbmodular原理没有看懂，有时间再了解。</p>
 <p>本文的方法，定义<span class="math inline">\(A:={a_1,..,a_n}\)</span>为推荐n个item的一些属性（主题）集合。其中属性集合为one-hot编码<span class="math inline">\(a_i\in\{0,1\}^d\)</span>.假设我们从n个集合中选取k个子集。 <span class="math display">\[
 p(A_k,w)=&lt;w,log(1+ \sum_{a_i\in{A_k}})&gt; + \sum_{a_i\in{A_k}}{s(a_i)}
@@ -426,7 +465,7 @@ A^*_k := argmax_{A_k\in{A},|A_k|=k}{p(A_k,w)}
 <p><span class="math display">\[
 A_0:=0 and A_{i+1} := A_i \cup\{argmax_{a\in{A/A_i}}{p((A_i \cap {a},w))} \}
 \]</span></p>
-<h2 id="personalization">personalization</h2>
+<h2 id="基于用户的个性化多样性模型">基于用户的个性化多样性模型</h2>
 <h3 id="learning-adaptive-global-weights">learning adaptive global weights</h3>
 <p>文章对比了logistic regression、clicks over expected clicks,click-thru-rate with additive smoothing三种方法，实验效果差不多。所以试验中使用的基于平滑的CTR。</p>
 <p><span class="math display">\[
@@ -440,7 +479,7 @@ w_u = (c_u + \alpha_0)||c_u+\alpha_0||^{-1}_1
 w_u = M w_u ||Mw_u||^{-1}_1
 \]</span> 其中，<span class="math inline">\(M_{ij} = \frac{cout(i,j)}{count(j)}\)</span>,cout(i,j)为同时看主题i,j的用户数 ，cout(j)为看主题j的用户数。M可以看做利用共现主题对w的平滑。</p>
 <h2 id="结论">结论</h2>
-<p>本文有用的几个结论： - 用户对于主题的多样性比较敏感。 -</p>
+<p>本文有用的几个结论： - 用户对于主题的多样性比较敏感。</p>
 
       
     </div>
@@ -613,7 +652,7 @@ w_u = M w_u ||Mw_u||^{-1}_1
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -692,7 +731,7 @@ w_u = M w_u ||Mw_u||^{-1}_1
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#scoring-item-relevance"><span class="nav-number">1.</span> <span class="nav-text">SCORING ITEM RELEVANCE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#submodular-diversification"><span class="nav-number">2.</span> <span class="nav-text">submodular diversification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#personalization"><span class="nav-number">3.</span> <span class="nav-text">personalization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#learning-adaptive-global-weights"><span class="nav-number">3.1.</span> <span class="nav-text">learning adaptive global weights</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#user-specific-weights"><span class="nav-number">3.2.</span> <span class="nav-text">user specific weights</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#user-modeling"><span class="nav-number">3.2.1.</span> <span class="nav-text">user modeling</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">4.</span> <span class="nav-text">结论</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基于贝叶斯回归模型的评分模型"><span class="nav-number">1.</span> <span class="nav-text">基于贝叶斯回归模型的评分模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#regularized-logistic-regression-with-batch-updates"><span class="nav-number">1.1.</span> <span class="nav-text">Regularized logistic regression with batch updates</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于主题的多样性模型子模块"><span class="nav-number">2.</span> <span class="nav-text">基于主题的多样性模型子模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于用户的个性化多样性模型"><span class="nav-number">3.</span> <span class="nav-text">基于用户的个性化多样性模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#learning-adaptive-global-weights"><span class="nav-number">3.1.</span> <span class="nav-text">learning adaptive global weights</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#user-specific-weights"><span class="nav-number">3.2.</span> <span class="nav-text">user specific weights</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#user-modeling"><span class="nav-number">3.2.1.</span> <span class="nav-text">user modeling</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">4.</span> <span class="nav-text">结论</span></a></li></ol></div>
             
 
           </div>
@@ -734,7 +773,7 @@ w_u = M w_u ||Mw_u||^{-1}_1
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">6.9k</span>
+    <span title="Site words total count">7.0k</span>
   
 </div>
 
