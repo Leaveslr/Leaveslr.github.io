@@ -363,7 +363,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,163
+                  1,160
                 </span>
               
 
@@ -400,18 +400,16 @@
       
 
       
-        <p>自己搭建博客的一些参考资料，记录防止以后用到。并非教程。未完成，待补充：discus评论系统，加入百度、google的统计。<br><a id="more"></a></p>
-<h1 id="博客的搭建"><a href="#博客的搭建" class="headerlink" title="博客的搭建"></a>博客的搭建</h1><h1 id="博客的个性化设置"><a href="#博客的个性化设置" class="headerlink" title="博客的个性化设置"></a>博客的个性化设置</h1><h2 id="文章阅读次数"><a href="#文章阅读次数" class="headerlink" title="文章阅读次数"></a>文章阅读次数</h2><p>本博客的阅读次数统计使用的是leanCloud账号，注册相对简单，具体步骤：</p>
-<ol>
+        <p>自己搭建博客的一些参考资料，记录防止以后用到。并非教程。未完成，待补充：discus评论系统，加入百度、google的统计。 <a id="more"></a> # 博客的搭建 # 博客的个性化设置 ## 文章阅读次数 本博客的阅读次数统计使用的是leanCloud账号，注册相对简单，具体步骤：</p>
+<ol type="1">
 <li>创建LeanCloud账号<a href="https://leancloud.cn/" target="_blank" rel="noopener">LeanCloud</a></li>
-<li>创建应用：注册并登录LeanCloud后，进入控制台，单击“创建应用”按钮进行应用的创建，输入新应用名称，选择开发版，单击“创建”按钮完成创建。  <img src="https://upload-images.jianshu.io/upload_images/291600-a114303ec633d628.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></li>
-<li><p>创建Class:进入到刚刚创建的应用中，选择左侧导航栏的“存储”，然后点击“创建Class”，为了与NexT形成配置关系，将Class名称填为Counter，并选择无限制选项，然后单击“创建Class”按钮完成Class的创建，如下图所示：<img src="https://upload-images.jianshu.io/upload_images/291600-47b6f370eeb9384f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></p>
-<p> 点击刚刚创建的Counter，其实质是一张结构表，用来记录文章的浏览量，如下图所示，这里的表可以直接对文章阅读次数进行修改，所以如果想要追求阅读次数的读者可以在表上直接进行修改。</p>
-</li>
-<li><p>配置key:在左侧导航栏的设置界面，单击“应用Key”可以看到应用的App ID和App Key。复制ID和Key，然后将其配置到主题配置文件中，在文件中找到leancloud_visitors属性，将enable设置为true，然后将之前复制的ID和Key粘贴到相应的属性中。</p>
-</li>
+<li>创建应用：注册并登录LeanCloud后，进入控制台，单击“创建应用”按钮进行应用的创建，输入新应用名称，选择开发版，单击“创建”按钮完成创建。 <img src="https://upload-images.jianshu.io/upload_images/291600-a114303ec633d628.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700"></li>
+<li><p>创建Class:进入到刚刚创建的应用中，选择左侧导航栏的“存储”，然后点击“创建Class”，为了与NexT形成配置关系，将Class名称填为Counter，并选择无限制选项，然后单击“创建Class”按钮完成Class的创建，如下图所示：<img src="https://upload-images.jianshu.io/upload_images/291600-47b6f370eeb9384f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700"></p>
+<p>点击刚刚创建的Counter，其实质是一张结构表，用来记录文章的浏览量，如下图所示，这里的表可以直接对文章阅读次数进行修改，所以如果想要追求阅读次数的读者可以在表上直接进行修改。</p></li>
+<li><p>配置key:在左侧导航栏的设置界面，单击“应用Key”可以看到应用的App ID和App Key。复制ID和Key，然后将其配置到主题配置文件中，在文件中找到leancloud_visitors属性，将enable设置为true，然后将之前复制的ID和Key粘贴到相应的属性中。</p></li>
 </ol>
-<h2 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h2><p>一开始用的 JiaThis, 后发现发不上去就不显示。后使用的needmoreshare2。</p>
+<h2 id="分享">分享</h2>
+<p>一开始用的 JiaThis, 后发现发不上去就不显示。后使用的needmoreshare2。</p>
 <pre><code># NeedMoreShare2
 # This plugin is a pure javascript sharing lib which is useful in China.
 # See: https://github.com/revir/need-more-share2
@@ -436,69 +434,77 @@ needmoreshare2:
     enable: false
     options:
       iconStyle: box
-      boxForm: horizontal
-</code></pre><h2 id="评论系统"><a href="#评论系统" class="headerlink" title="评论系统"></a>评论系统</h2><p>一开始折腾了使用 <a href="http://www.uyan.cc/" target="_blank" rel="noopener">友言</a>,发现一直出不来效果，就果断放弃了（后期看看加入好的评论系统）。然后转向了简单的<a href="https://valine.js.org/" target="_blank" rel="noopener">Valine</a>.</p>
+      boxForm: horizontal</code></pre>
+<h2 id="评论系统">评论系统</h2>
+<p>一开始折腾了使用 <a href="http://www.uyan.cc/" target="_blank" rel="noopener">友言</a>,发现一直出不来效果，就果断放弃了（后期看看加入好的评论系统）。然后转向了简单的<a href="https://valine.js.org/" target="_blank" rel="noopener">Valine</a>.</p>
 <p>Valine一款快速、简洁且高效的无后端评论系统,基于Leancloud开发。具体流程：</p>
-<ol>
+<ol type="1">
 <li>创建LeanCloud账号<a href="https://leancloud.cn/" target="_blank" rel="noopener">LeanCloud</a> 并获取 App ID和App Key。</li>
 <li><p>配置：</p>
-<pre><code># Valine.
-# You can get your appid and appkey from https://leancloud.cn
-# more info please open https://valine.js.org
+<pre><code> # Valine.
+ # You can get your appid and appkey from https://leancloud.cn
+ # more info please open https://valine.js.org
  valine:
-   enable: true
-   appid: *****
-   appkey: ****
-   notify: false # mail notifier , https://github.com/xCss/Valine/wiki
-   verify: false # Verification code
-   placeholder: Just go go # comment box placeholder
-   avatar: mm # gravatar style
-   guest_info: nick,mail,link # custom comment header
-   pageSize: 10 # pagination size 
-</code></pre></li>
+ enable: true
+ appid: *****
+ appkey: ****
+ notify: false # mail notifier , https://github.com/xCss/Valine/wiki
+ verify: false # Verification code
+ placeholder: Just go go # comment box placeholder
+ avatar: mm # gravatar style
+ guest_info: nick,mail,link # custom comment header
+ pageSize: 10 # pagination size </code></pre></li>
 </ol>
-<h2 id="布局大小调整"><a href="#布局大小调整" class="headerlink" title="布局大小调整"></a>布局大小调整</h2><p>一开始用的next默认的布局，但是看到<a href="http://jmyblog.top" target="_blank" rel="noopener">jmyblog</a>后，发现自己的布局可以调整，就尝试调整了一下，在官方文章中设置内容区域布局：NexT 对于内容的宽度的设定如下：700px，当屏幕宽度 &lt; 1600px；900px，当屏幕宽度 &gt;= 1600px；移动设备下，宽度自适应。</p>
+<h2 id="布局大小调整">布局大小调整</h2>
+<p>一开始用的next默认的布局，但是看到<a href="http://jmyblog.top" target="_blank" rel="noopener">jmyblog</a>后，发现自己的布局可以调整，就尝试调整了一下，在官方文章中设置内容区域布局：NexT 对于内容的宽度的设定如下：700px，当屏幕宽度 &lt; 1600px；900px，当屏幕宽度 &gt;= 1600px；移动设备下，宽度自适应。</p>
 <p>如果你需要修改内容的宽度，同样需要编辑样式文件。 编辑主题的 source/css/_variables/custom.styl 文件，新增变量：</p>
 <pre><code>// 修改成你期望的宽度
 $content-desktop = 700px
 
 // 当视窗超过 1600px 后的宽度
-$content-desktop-large = 900px
-</code></pre><p>但是对于Pisces Scheme，需要单独配置source/css/_variables/custom.styl：</p>
+$content-desktop-large = 900px</code></pre>
+<p>但是对于Pisces Scheme，需要单独配置source/css/_variables/custom.styl：</p>
 <pre><code>.header{ width: 90%; }
 .container .main-inner { width: 90%; }
-.content-wrap { width: calc(100% - 260px); }
-</code></pre><h2 id="侧边栏调整"><a href="#侧边栏调整" class="headerlink" title="侧边栏调整"></a>侧边栏调整</h2><h2 id="文末版权信息"><a href="#文末版权信息" class="headerlink" title="文末版权信息"></a>文末版权信息</h2><h2 id="站点访问人数"><a href="#站点访问人数" class="headerlink" title="站点访问人数"></a>站点访问人数</h2><p>具体实现方法，在\themes\next\layout_partials\footer.swig文件中，在copyright前加以下代码：</p>
-<pre><code>&lt;script async src=&quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;
-</code></pre><p>在再合适的位置添加显示统计的代码：</p>
+.content-wrap { width: calc(100% - 260px); }</code></pre>
+<h2 id="侧边栏调整">侧边栏调整</h2>
+<h2 id="文末版权信息">文末版权信息</h2>
+<h2 id="站点访问人数">站点访问人数</h2>
+<p>具体实现方法，在_partials.swig文件中，在copyright前加以下代码：</p>
+<pre><code>&lt;script async src=&quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</code></pre>
+<p>在再合适的位置添加显示统计的代码：</p>
 <pre><code>&lt;div class=&quot;powered-by&quot;&gt;
 &lt;i class=&quot;fa fa-user-md&quot;&gt;&lt;/i&gt;&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;
   访客:&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;
   浏览:&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;
   &lt;/span&gt;
-&lt;/div&gt;
-</code></pre><h2 id="文章字数统计"><a href="#文章字数统计" class="headerlink" title="文章字数统计"></a>文章字数统计</h2><ol>
+&lt;/div&gt;</code></pre>
+<h2 id="文章字数统计">文章字数统计</h2>
+<ol type="1">
 <li>切换到根目录下，然后运行如下代码 <code>$ npm install hexo-wordcount --save</code></li>
 <li><p>然后在主题的配置文件中，配置如下：</p>
-<pre><code># Post wordcount display settings
-# Dependencies: https://github.com/willin/hexo-wordcount
+<pre><code> # Post wordcount display settings
+ # Dependencies: https://github.com/willin/hexo-wordcount
  post_wordcount:
  item_text: true
  wordcount: true
- min2read: true
-</code></pre></li>
+ min2read: true</code></pre></li>
 </ol>
-<h2 id="修改文章底部的那个带-号的标签"><a href="#修改文章底部的那个带-号的标签" class="headerlink" title="修改文章底部的那个带#号的标签"></a>修改文章底部的那个带#号的标签</h2><p>修改模板/themes/next/layout/_macro/post.swig，搜索 <code>rel=&quot;tag&quot;&gt;#</code>，将 <code>#</code> 换成<code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code></p>
-<h2 id="网站底部次数统计"><a href="#网站底部次数统计" class="headerlink" title="网站底部次数统计"></a>网站底部次数统计</h2><p>需要使用hexo-wordcount 具体步骤：</p>
-<ol>
+<h2 id="修改文章底部的那个带号的标签">修改文章底部的那个带#号的标签</h2>
+<p>修改模板/themes/next/layout/_macro/post.swig，搜索 <code>rel=&quot;tag&quot;&gt;#</code>，将 <code>#</code> 换成<code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code></p>
+<h2 id="网站底部次数统计">网站底部次数统计</h2>
+<p>需要使用hexo-wordcount 具体步骤：</p>
+<ol type="1">
 <li>切换到根目录下，然后运行如下代码 <code>$ npm install hexo-wordcount --save</code></li>
 <li>然后在/themes/next/layout/_partials/footer.swig文件尾部加上：</li>
 </ol>
-<h2 id="加入百度"><a href="#加入百度" class="headerlink" title="加入百度"></a>加入百度</h2><h1 id="hexo-next-资料"><a href="#hexo-next-资料" class="headerlink" title="hexo+next 资料"></a>hexo+next 资料</h1><ol>
-<li>next官方： <a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">http://theme-next.iissnan.com/</a></li>
-<li>hexo的next主题个性化教程：打造炫酷网站 <a href="http://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" rel="noopener">http://blog.csdn.net/qq_33699981/article/details/72716951</a></li>
-<li>一个好的布局：<a href="http://jmyblog.top/" target="_blank" rel="noopener">http://jmyblog.top/</a></li>
-<li>布局优化：<a href="http://blog.csdn.net/heqiangflytosky/article/details/54863185" target="_blank" rel="noopener">http://blog.csdn.net/heqiangflytosky/article/details/54863185</a></li>
+<h2 id="加入百度">加入百度</h2>
+<h1 id="hexonext-资料">hexo+next 资料</h1>
+<ol type="1">
+<li>next官方： http://theme-next.iissnan.com/</li>
+<li>hexo的next主题个性化教程：打造炫酷网站 http://blog.csdn.net/qq_33699981/article/details/72716951</li>
+<li>一个好的布局：http://jmyblog.top/</li>
+<li>布局优化：http://blog.csdn.net/heqiangflytosky/article/details/54863185</li>
 </ol>
 
       
@@ -755,7 +761,7 @@ $content-desktop-large = 900px
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#博客的搭建"><span class="nav-number">1.</span> <span class="nav-text">博客的搭建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#博客的个性化设置"><span class="nav-number">2.</span> <span class="nav-text">博客的个性化设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文章阅读次数"><span class="nav-number">2.1.</span> <span class="nav-text">文章阅读次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分享"><span class="nav-number">2.2.</span> <span class="nav-text">分享</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评论系统"><span class="nav-number">2.3.</span> <span class="nav-text">评论系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布局大小调整"><span class="nav-number">2.4.</span> <span class="nav-text">布局大小调整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#侧边栏调整"><span class="nav-number">2.5.</span> <span class="nav-text">侧边栏调整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文末版权信息"><span class="nav-number">2.6.</span> <span class="nav-text">文末版权信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#站点访问人数"><span class="nav-number">2.7.</span> <span class="nav-text">站点访问人数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章字数统计"><span class="nav-number">2.8.</span> <span class="nav-text">文章字数统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改文章底部的那个带-号的标签"><span class="nav-number">2.9.</span> <span class="nav-text">修改文章底部的那个带#号的标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网站底部次数统计"><span class="nav-number">2.10.</span> <span class="nav-text">网站底部次数统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加入百度"><span class="nav-number">2.11.</span> <span class="nav-text">加入百度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo-next-资料"><span class="nav-number">3.</span> <span class="nav-text">hexo+next 资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分享"><span class="nav-number">1.</span> <span class="nav-text">分享</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评论系统"><span class="nav-number">2.</span> <span class="nav-text">评论系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布局大小调整"><span class="nav-number">3.</span> <span class="nav-text">布局大小调整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#侧边栏调整"><span class="nav-number">4.</span> <span class="nav-text">侧边栏调整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文末版权信息"><span class="nav-number">5.</span> <span class="nav-text">文末版权信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#站点访问人数"><span class="nav-number">6.</span> <span class="nav-text">站点访问人数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章字数统计"><span class="nav-number">7.</span> <span class="nav-text">文章字数统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改文章底部的那个带号的标签"><span class="nav-number">8.</span> <span class="nav-text">修改文章底部的那个带#号的标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网站底部次数统计"><span class="nav-number">9.</span> <span class="nav-text">网站底部次数统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加入百度"><span class="nav-number">10.</span> <span class="nav-text">加入百度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexonext-资料"><span class="nav-number"></span> <span class="nav-text">hexo+next 资料</span></a></div>
             
 
           </div>

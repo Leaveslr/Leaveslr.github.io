@@ -81,22 +81,22 @@
 
 
 
-<meta name="description" content="RBM and NADE TO Collaborative Filtering最近在看深度学习在推荐算法上应用，本篇是hulu公司同事的ICML的文章A Neural Autoregressive Approach to Collaborative Filtering,介绍了利用NADE进行电影推荐的方法，在NETFX的数据集上取得了不错的结果，本文主要是学习和记录笔记，学习NADE-CF，并记录">
+<meta name="description" content="最近在看深度学习在推荐算法上应用，本篇是hulu公司同事的ICML的文章A Neural Autoregressive Approach to Collaborative Filtering,介绍了利用NADE进行电影推荐的方法，在NETFX的数据集上取得了不错的结果，本文主要是学习和记录笔记，学习NADE-CF，并记录所涉及的一些算法，供后续查看方便。">
 <meta name="keywords" content="机器学习,论文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="A Neural Autoregressive Approach to Collaborative Filtering">
 <meta property="og:url" content="https://leaveslr.github.io/2018/02/03/A-Neural-Autoregressive-Approach-to-Collaborative-Filtering/index.html">
 <meta property="og:site_name" content="菜叶">
-<meta property="og:description" content="RBM and NADE TO Collaborative Filtering最近在看深度学习在推荐算法上应用，本篇是hulu公司同事的ICML的文章A Neural Autoregressive Approach to Collaborative Filtering,介绍了利用NADE进行电影推荐的方法，在NETFX的数据集上取得了不错的结果，本文主要是学习和记录笔记，学习NADE-CF，并记录">
+<meta property="og:description" content="最近在看深度学习在推荐算法上应用，本篇是hulu公司同事的ICML的文章A Neural Autoregressive Approach to Collaborative Filtering,介绍了利用NADE进行电影推荐的方法，在NETFX的数据集上取得了不错的结果，本文主要是学习和记录笔记，学习NADE-CF，并记录所涉及的一些算法，供后续查看方便。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.blog.csdn.net/20130628222803078?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbXl0ZXN0bXk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 <meta property="og:image" content="http://img.blog.csdn.net/20160924172416013">
 <meta property="og:image" content="http://img.blog.csdn.net/20160924172457545">
 <meta property="og:image" content="http://img.blog.csdn.net/20160925113216371">
-<meta property="og:updated_time" content="2018-02-04T14:08:47.432Z">
+<meta property="og:updated_time" content="2018-02-05T03:37:41.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A Neural Autoregressive Approach to Collaborative Filtering">
-<meta name="twitter:description" content="RBM and NADE TO Collaborative Filtering最近在看深度学习在推荐算法上应用，本篇是hulu公司同事的ICML的文章A Neural Autoregressive Approach to Collaborative Filtering,介绍了利用NADE进行电影推荐的方法，在NETFX的数据集上取得了不错的结果，本文主要是学习和记录笔记，学习NADE-CF，并记录">
+<meta name="twitter:description" content="最近在看深度学习在推荐算法上应用，本篇是hulu公司同事的ICML的文章A Neural Autoregressive Approach to Collaborative Filtering,介绍了利用NADE进行电影推荐的方法，在NETFX的数据集上取得了不错的结果，本文主要是学习和记录笔记，学习NADE-CF，并记录所涉及的一些算法，供后续查看方便。">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20130628222803078?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbXl0ZXN0bXk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 
 
@@ -316,8 +316,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-04T22:08:47+08:00">
-                2018-02-04
+              <time title="更新于" itemprop="dateModified" datetime="2018-02-05T11:37:41+08:00">
+                2018-02-05
               </time>
             
           </span>
@@ -365,7 +365,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,406
+                  2,417
                 </span>
               
 
@@ -402,103 +402,169 @@
       
 
       
-        <h1 id="RBM-and-NADE-TO-Collaborative-Filtering"><a href="#RBM-and-NADE-TO-Collaborative-Filtering" class="headerlink" title="RBM and NADE TO Collaborative Filtering"></a>RBM and NADE TO Collaborative Filtering</h1><p>最近在看深度学习在推荐算法上应用，本篇是hulu公司同事的ICML的文章<a href="https://arxiv.org/pdf/1605.09477.pdf" target="_blank" rel="noopener">A Neural Autoregressive Approach to Collaborative Filtering</a>,介绍了利用NADE进行电影推荐的方法，在NETFX的数据集上取得了不错的结果，本文主要是学习和记录笔记，学习NADE-CF，并记录所涉及的一些算法，供后续查看方便。</p>
-<h2 id="RBM"><a href="#RBM" class="headerlink" title="RBM"></a>RBM</h2><p>RBM主要参考<a href="www.paper.edu.cn/download/downPaper/201301-528">受限波尔兹曼机简介-张春霞</a>,同时也参考核复制了博客的很多内容<a href="http://blog.csdn.net/mytestmy/article/details/9150213" target="_blank" rel="noopener"> 深度学习读书笔记之RBM（限制波尔兹曼机)</a>。在这里主要简介RBM涉及的几个计算公式，方便后边实现的理解。<br><img src="http://img.blog.csdn.net/20130628222803078?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbXl0ZXN0bXk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="RBM流程图"></p>
-<h4 id="能量函数"><a href="#能量函数" class="headerlink" title="能量函数"></a>能量函数</h4><p>能量函数。随机神经网络是根植于统计力学的。受统计力学中能量泛函的启发，引入了能量函数。能量函数是描述整个系统状态的一种测度。系统越有序或者概率分布越集中，系统的能量越小。反之，系统越无序或者概率分布越趋于均匀分布，则系统的能量越大。能量函数的最小值，对应于系统的最稳定状态。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E(v,h|\theta)=-\sum_&#123;i=0&#125;^&#123;n&#125;&#123;a_iv_i&#125;-\sum_&#123;j=0&#125;^&#123;m&#125;&#123;b_jh_j&#125;-\sum_&#123;i=0&#125;^&#123;n&#125;\sum_&#123;j=0&#125;^&#123;m&#125;&#123;&#123;v_i&#125;W_&#123;ij&#125;h_j&#125;</span><br></pre></td></tr></table></figure>
-<p>其中，<code>\\(a_i\\)</code> 和 \(b_j\) 为偏置，\(v_i\) 为可见层，\(h_j\) 为隐藏层。</p>
-<h4 id="似然函数"><a href="#似然函数" class="headerlink" title="似然函数"></a>似然函数</h4><p>有了能量函数，定义可视节点和隐藏层的联合概率分布。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p(v,h|\theta) = \frac&#123;e^&#123;-&#123;E(v,h|\theta)&#125;&#125;&#125; &#123;Z(\theta)&#125;,</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Z(\theta)=\sum_&#123;v,h&#125; &#123;e^&#123;-&#123;E(v,h|\theta)&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>由联合概率可以得到观测数据\(v\)的概率分布\(p(v|\theta)$`，也成为似然函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p(v|\theta) = -\frac&#123;1&#125;&#123;Z(\theta)&#125;\sum_h&#123;e^&#123;-&#123;E(v,h|\theta)&#125;&#125;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>同理，可以获得每个节点的激发函数,RBN层内节点不连接，同一层各节点独立分布。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p(v_i=1|h,\theta) = \sigma(a_i+\sum_j&#123;h_j W_&#123;ij&#125;&#125;)</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p(h_i=1|v,\theta) = \sigma(b_i+\sum_i&#123;v_i W_&#123;ij&#125;&#125;)</span><br></pre></td></tr></table></figure>
-<h4 id="对比散度RBM参数训练"><a href="#对比散度RBM参数训练" class="headerlink" title="对比散度RBM参数训练"></a>对比散度RBM参数训练</h4><p>学习RBM的任务是求出参数<code>$\theta\\)的值, 以拟合给定的训练数据。 参数</code>$\theta\)可以通过最大<br>化RBM在训练集昨假设包含T个样本昩上的对数似然函数学习得到, 即<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\Theta^* = &#123;arg\max&#125;_&#123;\theta&#125;(&#123;\xi(\theta)&#125;) = &#123;arg\max&#125;_&#123;\theta&#125;&#123;\sum_&#123;t=1&#125;^&#123;T&#125; &#123;logp(v^&#123;t&#125;|\theta)&#125;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Hiton提出了RBM的一个快速学习算法, 即对比散度(Contrastive Divergence)。与吉布斯采样不同, CD指出当使用训练数据初始化\(v_0\) 时, 我们仅需要使用k步吉布斯采样便可以得到足够好的近似。在CD算法一开始， 可见单元的状态被设置成一个训练样本，并利用式\(p(h|v,\theta)$`计算所有隐层单元的二值状态。在所有隐层单元的状态确定之后,来确定第i个可见单元\(v_i\)取值为1的概率,进而产生可见层的一个重构。</p>
+        最近在看深度学习在推荐算法上应用，本篇是hulu公司同事的ICML的文章<a href="https://arxiv.org/pdf/1605.09477.pdf" target="_blank" rel="noopener">A Neural Autoregressive Approach to Collaborative Filtering</a>,介绍了利用NADE进行电影推荐的方法，在NETFX的数据集上取得了不错的结果，本文主要是学习和记录笔记，学习NADE-CF，并记录所涉及的一些算法，供后续查看方便。 <a id="more"></a>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<h1 id="rbm-and-nade-to-collaborative-filtering">RBM and NADE TO Collaborative Filtering</h1>
+<p>最近在看深度学习在推荐算法上应用，本篇是hulu公司同事的ICML的文章<a href="https://arxiv.org/pdf/1605.09477.pdf" target="_blank" rel="noopener">A Neural Autoregressive Approach to Collaborative Filtering</a>,介绍了利用NADE进行电影推荐的方法，在NETFX的数据集上取得了不错的结果，本文主要是学习和记录笔记，学习NADE-CF，并记录所涉及的一些算法，供后续查看方便。</p>
+<h2 id="rbm">RBM</h2>
+<p>RBM主要参考<a href="www.paper.edu.cn/download/downPaper/201301-528">受限波尔兹曼机简介-张春霞</a>,同时也参考核复制了博客的很多内容<a href="http://blog.csdn.net/mytestmy/article/details/9150213" target="_blank" rel="noopener">深度学习读书笔记之RBM（限制波尔兹曼机)</a>。在这里主要简介RBM涉及的几个计算公式，方便后边实现的理解。 <img src="http://img.blog.csdn.net/20130628222803078?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbXl0ZXN0bXk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="RBM流程图"> #### 能量函数 能量函数。随机神经网络是根植于统计力学的。受统计力学中能量泛函的启发，引入了能量函数。能量函数是描述整个系统状态的一种测度。系统越有序或者概率分布越集中，系统的能量越小。反之，系统越无序或者概率分布越趋于均匀分布，则系统的能量越大。能量函数的最小值，对应于系统的最稳定状态。</p>
+<p><span class="math display">\[ E(v,h|\theta)=-\sum_{i=0}^{n}{a_i v_i} -\sum_{j=0}^{m}{b_jh_j} -\sum_{i=0}^{n} {\sum_{j=0}^{m} {v_i W_{ij} h_j} } \]</span></p>
+<p>其中，\(a_i\) 和 \(b_j\) 为偏置，\(v_i\) 为可见层，\(h_j\) 为隐藏层。</p>
+<h4 id="似然函数">似然函数</h4>
+<p>有了能量函数，定义可视节点和隐藏层的联合概率分布。 <span class="math display">\[ p(v,h|\theta) = \frac{e^{-{E(v,h|\theta)}}} {Z(\theta)} \]</span></p>
+<p><span class="math display">\[ Z(\theta)=\sum_{v,h} {e^{-{E(v,h|\theta)}}} \]</span> 由联合概率可以得到观测数据\(v\)的概率分布$( p(v|) $ ，也成为似然函数 <span class="math display">\[
+p(v|\theta) = -\frac{1}{Z(\theta)}\sum_h{e^{-{E(v,h|\theta)}}}
+\]</span> 同理，可以获得每个节点的激发函数,RBN层内节点不连接，同一层各节点独立分布。 <span class="math display">\[
+p(v_i=1|h,\theta) = \sigma(a_i+\sum_j{h_j W_{ij}})
+\]</span> <span class="math display">\[
+p(h_i=1|v,\theta) = \sigma(b_i+\sum_i{v_i W_{ij}})
+\]</span></p>
+<h4 id="对比散度rbm参数训练">对比散度RBM参数训练</h4>
+<p>学习RBM的任务是求出参数\(theta\)的值, 以拟合给定的训练数据。 参数\(theta\)可以通过最大 化RBM在训练集昨假设包含T个样本昩上的对数似然函数学习得到, 即 <span class="math display">\[
+\Theta^* = {arg\max}_{\theta}({\xi(\theta)}) = {arg\max}_{\theta}{\sum_{t=1}^{T} {logp(v^{t}|\theta)}}
+\]</span> Hiton提出了RBM的一个快速学习算法, 即对比散度(Contrastive Divergence)。与吉布斯采样不同, CD指出当使用训练数据初始化\(v_0\) 时, 我们仅需要使用k步吉布斯采样便可以得到足够好的近似。在CD算法一开始， 可见单元的状态被设置成一个训练样本，并利用式\(p(h|v,)$`计算所有隐层单元的二值状态。在所有隐层单元的状态确定之后,来确定第i个可见单元\(v_i\)取值为1的概率,进而产生可见层的一个重构。</p>
 <ul>
-<li>输入:一个训练样本\(m_0$<code>,隐层单元个数\\(m$</code>,学习率<code>$$</code>,最大训练周期\(T$`.</li>
+<li>输入:一个训练样本\(m_0\),隐层单元个数\(m\),学习率\($<span class="math inline">\(\\),最大训练周期\\(T\)</span>\).</li>
 <li>输出:连接权重矩阵W、可见层的偏置向量a、隐层的偏置向量b.</li>
-<li>训练阶段:<ul>
+<li>训练阶段:
+<ul>
 <li>初始化可见层单元的初始状态\(v1=x_0;W a\)和b为随机的较小数值。</li>
-<li>For t=1,2…T<ul>
-<li>For j=1,2..m(对所有隐层单元)<ul>
-<li>计算隐层节点分布\(p(h_{1j}=1|v<em>1)$<code>,</code>$p(h</em>{1j}=1|v_1) = \sigma(b_j+\sum<em>i{v</em>{1i} W_{ij}})$`</li>
-<li>计算隐层节点\(h<em>{1j}$`,从条件\(p(h</em>{1j}=1|v<em>1)$`中抽样\(h</em>{1j}= {0,1}$`,具体\(h<em>{1j}=p(h</em>{1j}=1|v_1)&gt;Rand(numHidden+1)? 1:0\)</li>
-</ul>
-</li>
+<li>For t=1,2…T
+<ul>
+<li>For j=1,2..m(对所有隐层单元)
+<ul>
+<li>计算隐层节点分布\(p(h_{1j}=1|v_1)<span class="math inline">\(`,`\)</span>p(h_{1j}=1|v_1) = (b_j+<em>i{v</em>{1i} W_{ij}})$`</li>
+<li>计算隐层节点\(h_{1j}<span class="math inline">\(`,从条件\\(p(h_{1j}=1|v_1)\)</span><code>中抽样\\(h_{1j}= \{0,1\}$</code>,具体\(h_{1j}=p(h_{1j}=1|v_1)&gt;Rand(numHidden+1)? 1:0\)</li>
+</ul></li>
 <li>EndFor</li>
-<li>For i=1,2,….,n(对所有可见层单元)<ul>
-<li>计算\(p(v_{2i}=1|h<em>1)$<code>,</code>$p(v</em>{2i}=1|h_1) = \sigma(a_i+\sum_j{h<em>j W</em>{ij}})$`</li>
-<li>计算节点\(v<em>{1i}$`,从条件\(p(v</em>{1j}=1|h<em>1)$`中抽样\(v</em>{1i}= {0,1}$<code>,具体\\(v_{1i}=p(v_{1i}=1|h_1)$</code>(参考下文中代码实现)</li>
-</ul>
-</li>
+<li>For i=1,2,….,n(对所有可见层单元)
+<ul>
+<li>计算\(p(v_{2i}=1|h_1)<span class="math inline">\(`,`\)</span>p(v_{2i}=1|h_1) = (a_i+<em>j{h_j W</em>{ij}})$`</li>
+<li>计算节点\(v_{1i}<span class="math inline">\(`,从条件\\(p(v_{1j}=1|h_1)\)</span><code>中抽样\\(v_{1i}= \{0,1\}$</code>,具体\(v_{1i}=p(v_{1i}=1|h_1)$`(参考下文中代码实现)</li>
+</ul></li>
 <li>EndFor</li>
-<li>For 1,2,…,m（对所有隐层单元）<ul>
-<li>计算隐层节点分布\(p(h_{2j}=1|v<em>2)$<code>,</code>$p(h</em>{2j}=1|v_2) = \sigma(b_j+\sum<em>i{v</em>{2i} W_{ij}})$`</li>
-</ul>
-</li>
+<li>For 1,2,…,m（对所有隐层单元）
+<ul>
+<li>计算隐层节点分布\(p(h_{2j}=1|v_2)<span class="math inline">\(`,`\)</span>p(h_{2j}=1|v_2) = (b_j+<em>i{v</em>{2i} W_{ij}})$`</li>
+</ul></li>
 <li>EndFor</li>
-<li>参数更新(根据上文的导数可以求得)<ul>
-<li>\(W=W+(p(h_{1}=1|v_1)v^T<em>1-p(h</em>{2}=1|v_2))v^T_2\)</li>
+<li>参数更新(根据上文的导数可以求得)
+<ul>
+<li>\(W=W+(p(h_{1}=1|v_1)v<sup>T_1-p(h_{2}=1|v_2))v</sup>T_2\)</li>
 <li>\(a=a+(v_1-v_2)$`</li>
-<li>\(b=b+(p(h_{1}=1|v<em>1)-p(h</em>{2}=1|v_2))$`</li>
+<li>\(b=b+(p(h_{1}=1|v_1)-p(h_{2}=1|v_2))$`</li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>python code 参考训练过程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">def train(self, data, max_epochs = 1000):</span><br><span class="line">   &quot;&quot;&quot;</span><br><span class="line">   Train the machine.</span><br><span class="line">   Parameters</span><br><span class="line">   ----------</span><br><span class="line">   data: A matrix where each row is a training example consisting of the states of visible units.    </span><br><span class="line">   &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">   num_examples = data.shape[0]</span><br><span class="line"></span><br><span class="line">   # Insert bias units of 1 into the first column.</span><br><span class="line">   data = np.insert(data, 0, 1, axis = 1)</span><br><span class="line"></span><br><span class="line">   for epoch in range(max_epochs):      </span><br><span class="line">     # Clamp to the data and sample from the hidden units. </span><br><span class="line">     # (This is the &quot;positive CD phase&quot;, aka the reality phase.)</span><br><span class="line">     pos_hidden_activations = np.dot(data, self.weights)      </span><br><span class="line">     pos_hidden_probs = self._logistic(pos_hidden_activations)</span><br><span class="line">     pos_hidden_states = pos_hidden_probs &gt; np.random.rand(num_examples, self.num_hidden + 1)</span><br><span class="line">     # Note that we&apos;re using the activation *probabilities* of the hidden states, not the hidden states       </span><br><span class="line">     # themselves, when computing associations. We could also use the states; see section 3 of Hinton&apos;s </span><br><span class="line">     # &quot;A Practical Guide to Training Restricted Boltzmann Machines&quot; for more.</span><br><span class="line">     pos_associations = np.dot(data.T, pos_hidden_probs)</span><br><span class="line"></span><br><span class="line">     # Reconstruct the visible units and sample again from the hidden units.</span><br><span class="line">     # (This is the &quot;negative CD phase&quot;, aka the daydreaming phase.)</span><br><span class="line">     neg_visible_activations = np.dot(pos_hidden_states, self.weights.T)</span><br><span class="line">     neg_visible_probs = self._logistic(neg_visible_activations)</span><br><span class="line">     neg_visible_probs[:,0] = 1 # Fix the bias unit.</span><br><span class="line">     neg_hidden_activations = np.dot(neg_visible_probs, self.weights)</span><br><span class="line">     neg_hidden_probs = self._logistic(neg_hidden_activations)</span><br><span class="line">     # Note, again, that we&apos;re using the activation *probabilities* when computing associations, not the states </span><br><span class="line">     # themselves.</span><br><span class="line">     neg_associations = np.dot(neg_visible_probs.T, neg_hidden_probs)</span><br><span class="line"></span><br><span class="line">     # Update weights.</span><br><span class="line">     self.weights += self.learning_rate * ((pos_associations - neg_associations) / num_examples)</span><br><span class="line"></span><br><span class="line">     error = np.sum((data - neg_visible_probs) ** 2)</span><br><span class="line">     print(&quot;Epoch %s: error is %s&quot; % (epoch, error))</span><br></pre></td></tr></table></figure></p>
+<p>python code 参考训练过程 $$ def train(self, data, max_epochs = 1000): “”&quot; Train the machine. Parameters ———- data: A matrix where each row is a training example consisting of the states of visible units.<br>
+“”&quot;</p>
+<pre><code>num_examples = data.shape[0]
+
+# Insert bias units of 1 into the first column.
+data = np.insert(data, 0, 1, axis = 1)
+
+for epoch in range(max_epochs):      
+  # Clamp to the data and sample from the hidden units. 
+  # (This is the &quot;positive CD phase&quot;, aka the reality phase.)
+  pos_hidden_activations = np.dot(data, self.weights)      
+  pos_hidden_probs = self._logistic(pos_hidden_activations)
+  pos_hidden_states = pos_hidden_probs &gt; np.random.rand(num_examples, self.num_hidden + 1)
+  # Note that we&#39;re using the activation *probabilities* of the hidden states, not the hidden states       
+  # themselves, when computing associations. We could also use the states; see section 3 of Hinton&#39;s 
+  # &quot;A Practical Guide to Training Restricted Boltzmann Machines&quot; for more.
+  pos_associations = np.dot(data.T, pos_hidden_probs)
+
+  # Reconstruct the visible units and sample again from the hidden units.
+  # (This is the &quot;negative CD phase&quot;, aka the daydreaming phase.)
+  neg_visible_activations = np.dot(pos_hidden_states, self.weights.T)
+  neg_visible_probs = self._logistic(neg_visible_activations)
+  neg_visible_probs[:,0] = 1 # Fix the bias unit.
+  neg_hidden_activations = np.dot(neg_visible_probs, self.weights)
+  neg_hidden_probs = self._logistic(neg_hidden_activations)
+  # Note, again, that we&#39;re using the activation *probabilities* when computing associations, not the states 
+  # themselves.
+  neg_associations = np.dot(neg_visible_probs.T, neg_hidden_probs)
+
+  # Update weights.
+  self.weights += self.learning_rate * ((pos_associations - neg_associations) / num_examples)
+
+  error = np.sum((data - neg_visible_probs) ** 2)
+  print(&quot;Epoch %s: error is %s&quot; % (epoch, error))</code></pre>
+<p>$$</p>
 <p>如果详细的了解过程，可以看一下github上代码<a href="https://github.com/echen/restricted-boltzmann-machines" target="_blank" rel="noopener">Restricted Boltzmann Machines in Python</a></p>
-<h2 id="RBM-CF"><a href="#RBM-CF" class="headerlink" title="RBM-CF"></a>RBM-CF</h2><p>有了以上对RBM的介绍和认识，接下来的RBM-CF的原理就很好理解了。<a href="http://www.machinelearning.org/proceedings/icml2007/papers/407.pdf" target="_blank" rel="noopener">Restricted Boltzmann Machines in Python</a>是Hinton大牛在2007ICML上提出的,在netfext上也取得了不错的效果。下面就详细的介绍一下算法。<br><img src="http://img.blog.csdn.net/20160924172416013" alt="image"><br>如图所示，RBM-CF是一个标准的RBM。其中V是用户对电影的评分（如图是5个级别）.可见层为用户对电影的评分向量，隐层为隐向量。</p>
-<h3 id="能量函数和似然函数"><a href="#能量函数和似然函数" class="headerlink" title="能量函数和似然函数"></a>能量函数和似然函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E(v,h|\theta)=-\sum_&#123;i=1&#125;^&#123;n&#125;&#123;\sum_&#123;k=1&#125;^&#123;K&#125;&#123;a_iv^k_i&#125;&#125;-\sum_&#123;j=1&#125;^&#123;m&#125;&#123;b_jh_j&#125;-\sum_&#123;i=1&#125;^&#123;n&#125;\sum_&#123;j=1&#125;^&#123;m&#125;&#123;\sum_&#123;k=1&#125;^&#123;K&#125;&#123;v^k_i&#125;W_&#123;ij&#125;h_j&#125;+\sum_&#123;i=1&#125;^M&#123;logZ_i&#125;</span><br></pre></td></tr></table></figure>
-<p>其中，\(Z<em>i=\sum^k</em>{l=1}{exp(b_i^l+\sum_j{h<em>jWw</em>{ij}})}$`<br>对应的似然函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p(v|\theta) = -\frac&#123;1&#125;&#123;Z(\theta)&#125;\sum_h&#123;e^&#123;-&#123;E(v,h|\theta)&#125;&#125;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>有了以上的定义，可以获得隐层和可见层的分布：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p(v_i^k=1|h,\theta) = \frac&#123;exp(a_i^k+\sum_j&#123;h_j W_&#123;ij&#125;^k&#125;)&#125;&#123;\sum_&#123;l=1&#125;^Kexp(a_i^l+\sum_j&#123;h_j W_&#123;ij&#125;^l&#125;)&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p(h_j=1|v,\theta) = \sigma(b_j+\sum_&#123;i=1&#125;^m&#123;\sum_&#123;k=1&#125;^K&#123;v_i W_&#123;ij&#125;^k&#125;)&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Conditional-RBM’s"><a href="#Conditional-RBM’s" class="headerlink" title="Conditional RBM’s"></a>Conditional RBM’s</h3><p>其实在NetFlix的数据中，用户对电影的评分是比较稀疏。有大量的用户观看了电影没有评分，因此作者为了将此类信息加入到模型中，增加模型对用户评分的准确性。如图，将用户的观看列表信息加入到隐层中。<br><img src="http://img.blog.csdn.net/20160924172457545" alt="image"><br>原先每个隐层的分布变为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p(h_j=1|v,\theta) = \sigma(b_j+\sum_&#123;i=1&#125;^m&#123;\sum_&#123;k=1&#125;^K&#123;v_i W_&#123;ij&#125;^k&#125;)+\sum_&#123;i=1&#125;^M&#123;r_iD_&#123;ij&#125;&#125;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>由于参数D与可见层无关，可以作为和b偏置一样的功能，参数更新也一样。</p>
-<h2 id="NADE"><a href="#NADE" class="headerlink" title="NADE"></a>NADE</h2><p>NADE是Hugo Larochelle在2011年提出，论文<a href="http://www.jmlr.org/proceedings/papers/v15/larochelle11a/larochelle11a.pdf" target="_blank" rel="noopener">The Neural Autoregressive Distribution Estimator</a>。具体引入NADE的原因还不是特别懂，看论文<br><code>We describe a new approach for modeling the distribution of high-dimensional vectors of discrete variables. This model is inspired by the restricted Boltzmann machine (RBM), which has been shown to be a powerful model of such distributions. However, an RBM typically does not provide a tractable distribution estimator, since evaluating the probability it assigns to some given observation requires the computation of the so-called partition function, which itself is intractable for RBMs of even moderate size.</code></p>
-<h3 id="可见层分布"><a href="#可见层分布" class="headerlink" title="可见层分布"></a>可见层分布</h3><p>将RBM贝叶斯网络化，v为可见层节点，\(v_{parent(i)}$`可以理解为\(v_i\)的网络中的隐层节点。那么可见层的分布为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p(v)=\prod^D_i&#123;p(v_i|v_&#123;parents(i)&#125;)&#125;</span><br></pre></td></tr></table></figure></p>
-<p>现在有两种表征\(p(v<em>i|v</em>{parents(i)})$`的方式，分别为FVSBM和NADE.<br><img src="http://img.blog.csdn.net/20160925113216371" alt="image"></p>
-<h4 id="FVSBM"><a href="#FVSBM" class="headerlink" title="FVSBM"></a>FVSBM</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p(v_i|v_&#123;parents(i)&#125;)=sigm(b_i+\sum_&#123;j&lt;i&#125;&#123;W_&#123;ij&#125;v_j&#125;)</span><br></pre></td></tr></table></figure>
-<h4 id="NADE-1"><a href="#NADE-1" class="headerlink" title="NADE"></a>NADE</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p(v_i=1|v_&#123;&lt;i&#125;)=sigm(b_i+&#123;(W^T)_&#123;i&#125;.h_i&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">h_i=sigm(c+&#123;W,_&#123;&lt;i&#125;v_&#123;&lt;i&#125;&#125;)</span><br></pre></td></tr></table></figure>
-<p>以上是NADE的可见层的分布公式，下面是求解流程：</p>
+<h2 id="rbm-cf">RBM-CF</h2>
+<p>有了以上对RBM的介绍和认识，接下来的RBM-CF的原理就很好理解了。<a href="http://www.machinelearning.org/proceedings/icml2007/papers/407.pdf" target="_blank" rel="noopener">Restricted Boltzmann Machines in Python</a>是Hinton大牛在2007ICML上提出的,在netfext上也取得了不错的效果。下面就详细的介绍一下算法。 <img src="http://img.blog.csdn.net/20160924172416013" alt="image"> 如图所示，RBM-CF是一个标准的RBM。其中V是用户对电影的评分（如图是5个级别）.可见层为用户对电影的评分向量，隐层为隐向量。 ### 能量函数和似然函数 <span class="math display">\[
+E(v,h|\theta)=-\sum_{i=1}^{n}{\sum_{k=1}^{K}{a_iv^k_i}}-\sum_{j=1}^{m}{b_jh_j}-\sum_{i=1}^{n}\sum_{j=1}^{m}{\sum_{k=1}^{K}{v^k_i}W_{ij}h_j}+\sum_{i=1}^M{logZ_i}
+\]</span> 其中，\(Z_i=<sup>k_{l=1}{exp(b_i</sup>l+<em>j{h_jWw</em>{ij}})}$` 对应的似然函数： <span class="math display">\[
+p(v|\theta) = -\frac{1}{Z(\theta)}\sum_h{e^{-{E(v,h|\theta)}}}
+\]</span> 有了以上的定义，可以获得隐层和可见层的分布： <span class="math display">\[
+p(v_i^k=1|h,\theta) = \frac{exp(a_i^k+\sum_j{h_j W_{ij}^k})}{\sum_{l=1}^Kexp(a_i^l+\sum_j{h_j W_{ij}^l})}
+\]</span> <span class="math display">\[
+p(h_j=1|v,\theta) = \sigma(b_j+\sum_{i=1}^m{\sum_{k=1}^K{v_i W_{ij}^k})}
+\]</span></p>
+<h3 id="conditional-rbms">Conditional RBM’s</h3>
+<p>其实在NetFlix的数据中，用户对电影的评分是比较稀疏。有大量的用户观看了电影没有评分，因此作者为了将此类信息加入到模型中，增加模型对用户评分的准确性。如图，将用户的观看列表信息加入到隐层中。 <img src="http://img.blog.csdn.net/20160924172457545" alt="image"> 原先每个隐层的分布变为： <span class="math display">\[
+p(h_j=1|v,\theta) = \sigma(b_j+\sum_{i=1}^m{\sum_{k=1}^K{v_i W_{ij}^k})+\sum_{i=1}^M{r_iD_{ij}}}
+\]</span> 由于参数D与可见层无关，可以作为和b偏置一样的功能，参数更新也一样。</p>
+<h2 id="nade">NADE</h2>
+<p>NADE是Hugo Larochelle在2011年提出，论文<a href="http://www.jmlr.org/proceedings/papers/v15/larochelle11a/larochelle11a.pdf" target="_blank" rel="noopener">The Neural Autoregressive Distribution Estimator</a>。具体引入NADE的原因还不是特别懂，看论文 <code>We describe a new approach for modeling the distribution of high-dimensional vectors of discrete variables. This model is inspired by the restricted Boltzmann machine (RBM), which has been shown to be a powerful model of such distributions. However, an RBM typically does not provide a tractable distribution estimator, since evaluating the probability it assigns to some given observation requires the computation of the so-called partition function, which itself is intractable for RBMs of even moderate size.</code> ### 可见层分布 将RBM贝叶斯网络化，v为可见层节点，\(v_{parent(i)}$<code>可以理解为\\(v_i\\)的网络中的隐层节点。那么可见层的分布为： $$ p(v)=\prod^D_i{p(v_i|v_{parents(i)})} $$ 现在有两种表征\\(p(v_i|v_{parents(i)})$</code>的方式，分别为FVSBM和NADE. <img src="http://img.blog.csdn.net/20160925113216371" alt="image"> #### FVSBM <span class="math display">\[
+p(v_i|v_{parents(i)})=sigm(b_i+\sum_{j&lt;i}{W_{ij}v_j})
+\]</span></p>
+<h4 id="nade-1">NADE</h4>
+<p><span class="math display">\[
+p(v_i=1|v_{&lt;i})=sigm(b_i+{(W^T)_{i}.h_i})
+\]</span> <span class="math display">\[
+h_i=sigm(c+{W,_{&lt;i}v_{&lt;i}})
+\]</span> 以上是NADE的可见层的分布公式，下面是求解流程：</p>
 <ul>
 <li>#计算p(v)</li>
 <li>a=c</li>
 <li>p(v)=0</li>
-<li>For i=1,2,…,D:<ul>
+<li>For i=1,2,…,D:
+<ul>
 <li>\(h_i=sigm(a)$`</li>
-<li>\(p(v<em>i=1|v</em>{&lt;i})=simg(b_i+V_i.h_i)$`</li>
-<li>\(p(v)=p(v)(p(v<em>i=1|v</em>{&lt;i})^{v_i} + (1-p(v<em>i=1|v</em>{&lt;i})^{1-v_i}))$`</li>
+<li>\(p(v_i=1|v_{&lt;i})=simg(b_i+V_i.h_i)$`</li>
+<li>\(p(v)=p(v)(p(v_i=1|v_{&lt;i})^{v_i} + (1-p(v_i=1|v_{&lt;i})^{1-v_i}))$`</li>
 <li>\(a=a+W.,_iv_i\)</li>
-</ul>
-</li>
+</ul></li>
 <li>EndFor</li>
 <li></li>
 <li>计算梯度-log(p(v))</li>
-<li>`${\delta{a}}=0\)</li>
-<li>`${\delta{c}}=0\)</li>
-<li>For i,2,…,D:<ul>
-<li>`${\delta{b_i}}=p(v<em>i=1|v</em>{&lt;i}) - v_i\)</li>
-<li>`${\delta{V_i}}=(p(v<em>i=1|v</em>{&lt;i}) - v_i)h^T_i\)</li>
-<li>`${\delta{h_i}}=(p(v<em>i=1|v</em>{&lt;i}) - v_i)V^T_i\)</li>
+<li>`${}=0\)</li>
+<li>`${}=0\)</li>
+<li>For i,2,…,D:
+<ul>
+<li>`${}=p(v_i=1|v_{&lt;i}) - v_i\)</li>
+<li>`${}=(p(v_i=1|v_{&lt;i}) - v_i)h^T_i\)</li>
+<li>`${}=(p(v_i=1|v_{&lt;i}) - v_i)V^T_i\)</li>
 <li><code>${\delta{c}}=\delta{c}+(\delta{h_i})h_i(1-h_i)$</code></li>
-<li>`$\delta{W,_i} = (\delta{a})v_i\)</li>
+<li>\delta{W,_i} = ()v_i\)</li>
 <li><code>${\delta{a}}=\delta{a}+(\delta{h_i})h_i(1-h_i)$</code></li>
-</ul>
-</li>
+</ul></li>
 <li>EndFor</li>
-<li>参数更新<h2 id="NADE-CF"><a href="#NADE-CF" class="headerlink" title="NADE-CF"></a>NADE-CF</h2>在以上铺垫后，就是讲应用加入到模型就行了。先定义一些参数\(r^u={r^u<em>{m</em>{o1}},r^u<em>{m</em>{o2}},..,r^u<em>{m</em>{oD}}}$<code>为用户的评分序列，\\(r^u_{m_{oi}}$</code>为用户的评分，在1-k之间。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p(r)=\prod^D_&#123;i=1&#125;&#123;p(r_&#123;m_&#123;oi&#125;&#125; | r_&#123;m_&#123;o&lt;i&#125;&#125;)&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>参数更新 ## NADE-CF 在以上铺垫后，就是讲应用加入到模型就行了。先定义一些参数\(r<sup>u={r</sup>u_{m_{o1}},r<sup>u_{m_{o2}},..,r</sup>u_{m_{oD}}}<span class="math inline">\(` 为用户的评分序列，\\(r^u_{m_{oi}}\)</span>`为用户的评分，在1-k之间。 <span class="math display">\[
+p(r)=\prod^D_{i=1}{p(r_{m_{oi}} | r_{m_{o&lt;i}})}
+\]</span> <span class="math display">\[
+h(r_{m_{o&lt;i}})=g(c+\sum_{j&lt;i}W^{r_{m_{oj}}}_{m_{oj}})
+\]</span> 另外，若写成每个用户对每个电影在评分K上的分布： <span class="math display">\[
+p(r_{m_{oi}}=k|r_{m_{o&lt;i}}) = \frac{exp(s^k_{m_{oi}}(r_{m_{o&lt;i}}))}{\sum^K_q{exp(s^q_{m_{oi}}(r_{m_{o&lt;i}}))}}
+\]</span> <span class="math display">\[
+s^k_{m_{oi}}(r_{m_{o&lt;i}}) = b^k_{m_{oi}} + V^k_{m_{oi}}h(r_{m_{o&lt;i}})
+\]</span> ### 目标函数 <span class="math display">\[
+-logp(r) = -\sum^D_i{logp(r_{m_{oi}}|r_{m_{o&lt;i}}})
+\]</span> ### 参数共享 <span class="math display">\[
+h(r_{m_{o&lt;i}})=g(c+\sum_{j&lt;i}{\sum^{r_{m_{oj}}}_kW^{k}_{m_{oj}}})
+\]</span> <span class="math display">\[
+s^k_{m_{oi}}(r_{m_{o&lt;i}}) = \sum_{j&lt;k}{b^k_{m_{oi}} + V^k_{m_{oi}}h(r_{m_{o&lt;i}})}
+\]</span></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">h(r_&#123;m_&#123;o&lt;i&#125;&#125;)=g(c+\sum_&#123;j&lt;i&#125;W^&#123;r_&#123;m_&#123;oj&#125;&#125;&#125;_&#123;m_&#123;oj&#125;&#125;)</span><br></pre></td></tr></table></figure>
-<p>另外，若写成每个用户对每个电影在评分K上的分布：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p(r_&#123;m_&#123;oi&#125;&#125;=k|r_&#123;m_&#123;o&lt;i&#125;&#125;) = \frac&#123;exp(s^k_&#123;m_&#123;oi&#125;&#125;(r_&#123;m_&#123;o&lt;i&#125;&#125;))&#125;&#123;\sum^K_q&#123;exp(s^q_&#123;m_&#123;oi&#125;&#125;(r_&#123;m_&#123;o&lt;i&#125;&#125;))&#125;&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s^k_&#123;m_&#123;oi&#125;&#125;(r_&#123;m_&#123;o&lt;i&#125;&#125;) = b^k_&#123;m_&#123;oi&#125;&#125; + V^k_&#123;m_&#123;oi&#125;&#125;h(r_&#123;m_&#123;o&lt;i&#125;&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="目标函数"><a href="#目标函数" class="headerlink" title="目标函数"></a>目标函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-logp(r) = -\sum^D_i&#123;logp(r_&#123;m_&#123;oi&#125;&#125;|r_&#123;m_&#123;o&lt;i&#125;&#125;&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="参数共享"><a href="#参数共享" class="headerlink" title="参数共享"></a>参数共享</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">h(r_&#123;m_&#123;o&lt;i&#125;&#125;)=g(c+\sum_&#123;j&lt;i&#125;&#123;\sum^&#123;r_&#123;m_&#123;oj&#125;&#125;&#125;_kW^&#123;k&#125;_&#123;m_&#123;oj&#125;&#125;&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s^k_&#123;m_&#123;oi&#125;&#125;(r_&#123;m_&#123;o&lt;i&#125;&#125;) = \sum_&#123;j&lt;k&#125;&#123;b^k_&#123;m_&#123;oi&#125;&#125; + V^k_&#123;m_&#123;oi&#125;&#125;h(r_&#123;m_&#123;o&lt;i&#125;&#125;)&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -756,7 +822,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RBM-and-NADE-TO-Collaborative-Filtering"><span class="nav-number">1.</span> <span class="nav-text">RBM and NADE TO Collaborative Filtering</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RBM"><span class="nav-number">1.1.</span> <span class="nav-text">RBM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#能量函数"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">能量函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#似然函数"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">似然函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对比散度RBM参数训练"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">对比散度RBM参数训练</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RBM-CF"><span class="nav-number">1.2.</span> <span class="nav-text">RBM-CF</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#能量函数和似然函数"><span class="nav-number">1.2.1.</span> <span class="nav-text">能量函数和似然函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conditional-RBM’s"><span class="nav-number">1.2.2.</span> <span class="nav-text">Conditional RBM’s</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NADE"><span class="nav-number">1.3.</span> <span class="nav-text">NADE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可见层分布"><span class="nav-number">1.3.1.</span> <span class="nav-text">可见层分布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#FVSBM"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">FVSBM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NADE-1"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">NADE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NADE-CF"><span class="nav-number">1.4.</span> <span class="nav-text">NADE-CF</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目标函数"><span class="nav-number">1.4.1.</span> <span class="nav-text">目标函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数共享"><span class="nav-number">1.4.2.</span> <span class="nav-text">参数共享</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#rbm-and-nade-to-collaborative-filtering"><span class="nav-number">1.</span> <span class="nav-text">RBM and NADE TO Collaborative Filtering</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rbm"><span class="nav-number">1.1.</span> <span class="nav-text">RBM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#似然函数"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">似然函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对比散度rbm参数训练"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">对比散度RBM参数训练</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rbm-cf"><span class="nav-number">1.2.</span> <span class="nav-text">RBM-CF</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#conditional-rbms"><span class="nav-number">1.2.1.</span> <span class="nav-text">Conditional RBM’s</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nade"><span class="nav-number">1.3.</span> <span class="nav-text">NADE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#nade-1"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">NADE</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
