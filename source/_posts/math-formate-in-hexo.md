@@ -245,3 +245,4 @@ $$f'(x\_0)=\lim_{\Delta x\to 0} \frac{f(x\_0+\Delta x) - f(x\_0)}{\Delta x}$$
 1. [如何在Hexo博客中插入数学公式](http://daniellaah.github.io/2016/Mathmatical-Formula-within-Markdown.html)
 2. Markdown+math 编辑器[StackEdit](https://github.com/benweet/stackedit/)
 3. [Pandoc markdown语法](http://pages.tzengyuxio.me/pandoc/)
+4. [mathjax常用数学符号](http://blog.csdn.net/ethmery/article/details/50670297)

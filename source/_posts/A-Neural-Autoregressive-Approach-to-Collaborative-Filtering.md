@@ -4,7 +4,6 @@ date: 2018-02-03 15:57:17
 mathjax: true
 tags:
 - 机器学习
-- 论文
 ---
 本篇文章是在16年的一个阅读论文的笔记，讨论了RBM和NADE在协同过滤上的应用，重点是hulu公司同事的ICML的文章[A Neural Autoregressive Approach to Collaborative Filtering](https://arxiv.org/pdf/1605.09477.pdf),介绍了利用NADE进行电影推荐的方法。
 <!-- more -->

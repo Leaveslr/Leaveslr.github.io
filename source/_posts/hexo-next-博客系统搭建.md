@@ -3,7 +3,9 @@
 title: hexo+next 博客系统搭建
 date: 2018-02-02 16:36:35
 tags: 
-- 个人
+- hexo
+categories:
+- hexo
 ---
 自己搭建博客的一些参考资料，记录防止以后用到。并非教程。未完成，待补充：discus评论系统，加入百度、google的统计。
 <!-- more -->
