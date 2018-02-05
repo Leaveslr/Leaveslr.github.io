@@ -1,12 +1,12 @@
 ---
-title: math formate in hexo
+title: hexo中编辑数学公式
 date: 2018-02-03 22:28:15
 tags:
 - hexo
 categories:
 - hexo
 ---
-hexo中使用数学公式的一个解决方法和相应的公式符号。
+hexo中使用数学公式的一个简单介绍（非教程），全当记录自己的想法，等自己探索差不多后会沉淀成教程。
 <!-- more -->
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -26,7 +26,7 @@ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
 2. 编辑本地markdown，并能可视化查看。
 
 # hexo工作原理
-其实下面讲了一通，在服务端可视化只要在hexo的配置中打开MathJax的开关就行了，想了解原理的可以继续看。
+其实下面讲了一通，在服务端可视化只要在hexo的配置中打开MathJax的开关就行了，同时对于marked中转义字符的问题参考[Hexo下mathjax的转义问题](http://shomy.top/2016/10/22/hexo-markdown-mathjax/)解决，想了解原理的可以继续看。
 
 在开始讲解解决方案前，我们需要先了解一下hexo的工作原理，既hexo是如何通过我们编辑的makrdown文件生成一个漂亮的博客网站的。在[官网](https://hexo.io/zh-cn/docs/index.html)中如是描述hexo：
 > Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
@@ -195,6 +195,8 @@ MathJax允许你在你的网页中包含公式，无论是使用LaTeX、MathML�
 ##	Marked+MathJax+Markdown
 好了上面我们介绍了Marked和MathJax，是不是markdown到html并能顺利展示已经解决了，貌似也不用费什么心思了。但是使用marked.js去解析我们写的markdown，比如一些符号，`_`代表斜体会被处理为`<em>`标签，比如在`x_i`开始被渲染的时候，处理为x<em>i</em>，这个时候mathjax就无法渲染成下标了。很多符号都有这个问题，比如粗体*,也是无法在mathjax渲染出来的，好在有替代的乘法等,包括\\同理。因此问题就是Marked在解析转换markdown时没有考虑数学公式的问题.这里有个解决方法[Hexo下mathjax的转义问题](http://shomy.top/2016/10/22/hexo-markdown-mathjax/)
 
+> 2018-02-05 为了彻底解决问题，免去各种配置问题，我直接转为Pandoc引擎进行markdown文件的渲染。
+
 # 本地可视化编辑
 本地化编辑我是用的MarkdownPad,在这个编辑器中公式不能直接浏览，需要在网页中查看。相关配置：在markdown文件中内容部分直接加入：
 
@@ -233,12 +235,13 @@ MathJax允许你在你的网页中包含公式，无论是使用LaTeX、MathML�
 当然有很多其他直接浏览的工具，如cmd Markdown, stackEdit等。按需自取吧。
 
 # 简单公式
+可以直接参考[Easy Copy MathJax](http://easy-copy-mathjax.xxxx7.com/) 中数学公式的MathJax识别的符号。下面是自己经常用的一些记录。
 ## 行中公式
 对于一个线性方程 \\( y=a*x+b\\)
-
 
 $$f'(x\_0)=\lim_{\Delta x\to 0} \frac{f(x\_0+\Delta x) - f(x\_0)}{\Delta x}$$
 
 # 资料
 1. [如何在Hexo博客中插入数学公式](http://daniellaah.github.io/2016/Mathmatical-Formula-within-Markdown.html)
 2. Markdown+math 编辑器[StackEdit](https://github.com/benweet/stackedit/)
+3. [Pandoc markdown语法](http://pages.tzengyuxio.me/pandoc/)

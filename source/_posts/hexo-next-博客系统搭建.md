@@ -5,11 +5,11 @@ date: 2018-02-02 16:36:35
 tags: 
 - 个人
 ---
-自己搭建博客的一些参考资料，记录防止以后用到。并非教程。
+自己搭建博客的一些参考资料，记录防止以后用到。并非教程。未完成，待补充：discus评论系统，加入百度、google的统计。
 <!-- more -->
-## 博客的搭建
-## 博客的个性化设置
-### 文章阅读次数
+# 博客的搭建
+# 博客的个性化设置
+## 文章阅读次数
 本博客的阅读次数统计使用的是leanCloud账号，注册相对简单，具体步骤：
 
 1. 创建LeanCloud账号[LeanCloud](https://leancloud.cn/)
@@ -20,7 +20,7 @@ tags:
      
 4. 配置key:在左侧导航栏的设置界面，单击“应用Key”可以看到应用的App ID和App Key。复制ID和Key，然后将其配置到主题配置文件中，在文件中找到leancloud_visitors属性，将enable设置为true，然后将之前复制的ID和Key粘贴到相应的属性中。
 
-### 分享
+## 分享
 一开始用的 JiaThis, 后发现发不上去就不显示。后使用的needmoreshare2。
 
     # NeedMoreShare2
@@ -49,33 +49,34 @@ tags:
           iconStyle: box
           boxForm: horizontal
 
-### 评论系统
+## 评论系统
 一开始折腾了使用 [友言](http://www.uyan.cc/),发现一直出不来效果，就果断放弃了（后期看看加入好的评论系统）。然后转向了简单的[Valine](https://valine.js.org/).
 
 Valine一款快速、简洁且高效的无后端评论系统,基于Leancloud开发。具体流程：
 
 1. 创建LeanCloud账号[LeanCloud](https://leancloud.cn/) 并获取 App ID和App Key。
 2. 配置：
-
-     \# Valine.
-     \# You can get your appid and appkey from https://leancloud.cn
-     \# more info please open https://valine.js.org
-     valine:
-       enable: true
-       appid: *****
-       appkey: ****
-       notify: false # mail notifier , https://github.com/xCss/Valine/wiki
-       verify: false # Verification code
-       placeholder: Just go go # comment box placeholder
-       avatar: mm # gravatar style
-       guest_info: nick,mail,link # custom comment header
-       pageSize: 10 # pagination size 
+	
+		# Valine.
+    	# You can get your appid and appkey from https://leancloud.cn
+    	# more info please open https://valine.js.org
+     	valine:
+       	enable: true
+       	appid: *****
+       	appkey: ****
+       	notify: false # mail notifier , https://github.com/xCss/Valine/wiki
+       	verify: false # Verification code
+       	placeholder: Just go go # comment box placeholder
+       	avatar: mm # gravatar style
+       	guest_info: nick,mail,link # custom comment header
+       	pageSize: 10 # pagination size 
     
-### 布局大小调整
+## 布局大小调整
 一开始用的next默认的布局，但是看到[jmyblog](http://jmyblog.top)后，发现自己的布局可以调整，就尝试调整了一下，在官方文章中设置内容区域布局：NexT 对于内容的宽度的设定如下：700px，当屏幕宽度 < 1600px；900px，当屏幕宽度 >= 1600px；移动设备下，宽度自适应。
 
 如果你需要修改内容的宽度，同样需要编辑样式文件。 编辑主题的 source/css/_variables/custom.styl 文件，新增变量：
-    // 修改成你期望的宽度
+
+	// 修改成你期望的宽度
     $content-desktop = 700px
 
     // 当视窗超过 1600px 后的宽度
@@ -87,10 +88,10 @@ Valine一款快速、简洁且高效的无后端评论系统,基于Leancloud开�
     .container .main-inner { width: 90%; }
     .content-wrap { width: calc(100% - 260px); }
 
-### 侧边栏调整
+## 侧边栏调整
 
-### 文末版权信息
-### 站点访问人数
+## 文末版权信息
+## 站点访问人数
 具体实现方法，在\themes\next\layout\_partials\footer.swig文件中，在copyright前加以下代码：
 
     <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -104,31 +105,30 @@ Valine一款快速、简洁且高效的无后端评论系统,基于Leancloud开�
 	  </span>
 	</div>
 
-### 文章字数统计 
+## 文章字数统计 
 1. 切换到根目录下，然后运行如下代码 `$ npm install hexo-wordcount --save`
 2. 然后在主题的配置文件中，配置如下：
     
-    `# Post wordcount display settings
-    # Dependencies: https://github.com/willin/hexo-wordcount
-     post_wordcount:
-     item_text: true
-     wordcount: true
-     min2read: true`
+    	# Post wordcount display settings
+    	# Dependencies: https://github.com/willin/hexo-wordcount
+     	post_wordcount:
+     	item_text: true
+     	wordcount: true
+     	min2read: true
 
-### 修改文章底部的那个带#号的标签
-修改模板/themes/next/layout/_macro/post.swig，搜索 
- `rel="tag">#，将 # 换成<i class="fa fa-tag"></i>`
+## 修改文章底部的那个带#号的标签
+修改模板/themes/next/layout/_macro/post.swig，搜索 `rel="tag">#`，将 `#` 换成`<i class="fa fa-tag"></i>`
 
-### 网站底部次数统计
+## 网站底部次数统计
 需要使用hexo-wordcount 具体步骤：
 
 1. 切换到根目录下，然后运行如下代码 `$ npm install hexo-wordcount --save`
 2. 然后在/themes/next/layout/_partials/footer.swig文件尾部加上：
 
-### 加入百度
+## 加入百度
 
 
-## hexo+next 资料
+# hexo+next 资料
 1. next官方： http://theme-next.iissnan.com/
 1.  hexo的next主题个性化教程：打造炫酷网站 http://blog.csdn.net/qq_33699981/article/details/72716951
 2.  一个好的布局：http://jmyblog.top/
